@@ -21,8 +21,8 @@ Difficulty: Medium
 */
 
 /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner
-	name = "blood-drunk miner"
-	desc = "A miner destined to wander forever, engaged in an endless hunt."
+	name = "infected miner"
+	desc = "A miner from YULE colony, who survived its initial destruction. Battling the infestation within has left them mentally broken and psychotic."
 	threat = 15
 	health = 900
 	maxHealth = 900
@@ -40,7 +40,7 @@ Difficulty: Medium
 	ranged = 1
 	ranged_cooldown_time = 16
 	pixel_x = -16
-	crusher_loot = list(/obj/item/melee/transforming/cleaving_saw, /obj/item/gun/energy/kinetic_accelerator/premiumka, /obj/item/crusher_trophy/miner_eye)
+	crusher_loot = list()
 	loot = list(/obj/item/melee/transforming/cleaving_saw, /obj/item/gun/energy/kinetic_accelerator/premiumka)
 	wander = FALSE
 	del_on_death = TRUE
@@ -51,7 +51,7 @@ Difficulty: Medium
 	var/dashing = FALSE
 	var/dash_cooldown = 15
 	var/guidance = FALSE
-	deathmessage = "falls to the ground, decaying into glowing particles."
+	deathmessage = "falls to the ground, decaying into meat and slurry."
 	death_sound = "bodyfall"
 
 	footstep_type = FOOTSTEP_MOB_HEAVY
@@ -262,12 +262,12 @@ Difficulty: Medium
 /obj/item/gps/internal/miner
 	icon_state = null
 	gpstag = "Resonant Signal"
-	desc = "The sweet blood, oh, it sings to me."
+	desc = "A distress signal matching those of YULE colony. It has long decayed into mostly static, intermixed with erratic whispers."
 	invisibility = 100
 
 /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/doom
-	name = "hostile-environment miner"
-	desc = "A miner destined to hop across dimensions for all eternity, hunting anomalous creatures."
+	name = "hostile contact"
+	desc = "Someone or something, clad in an unidentified suit of armor. Their eyes glow with malicious intent."
 	speed = 8
 	move_to_delay = 8
 	ranged_cooldown_time = 8

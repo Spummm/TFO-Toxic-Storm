@@ -3,11 +3,11 @@
 	vision_range = 2
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	faction = list("mining")
-	weather_immunities = list("lava","ash")
+	weather_immunities = list("acid")
 	obj_damage = 30
 	environment_smash = ENVIRONMENT_SMASH_WALLS
 	minbodytemp = 0
-	maxbodytemp = INFINITY
+	maxbodytemp = 200
 	response_harm_continuous = "strikes"
 	response_harm_simple = "strike"
 	status_flags = 0
@@ -40,8 +40,8 @@
 	if(!stat)
 		Aggro()
 	if(P.damage < 30 && P.damage_type != BRUTE)
-		P.damage = (P.damage / 3)
-		visible_message("<span class='danger'>[P] has a reduced effect on [src]!</span>")
+		P.damage = (P.damage / 2)
+		visible_message("<span class='danger'>[src] resists the [P]!</span>")
 	return ..()
 
 /mob/living/simple_animal/hostile/asteroid/hitby(atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)//No floor tiling them to death, wiseguy

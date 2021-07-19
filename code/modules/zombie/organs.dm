@@ -37,9 +37,7 @@
 	STOP_PROCESSING(SSobj, src) //Required to be done after the parent call to avoid conflicts with organ decay.
 
 /obj/item/organ/zombie_infection/on_find(mob/living/finder)
-	to_chat(finder, "<span class='warning'>Inside the head is a disgusting black \
-		web of pus and viscera, bound tightly around the brain like some \
-		biological harness.</span>")
+	to_chat(finder, "<span class='warning'>Inside the head is a tiny worm, wriggling about the brain as it secretes some kind of connecting fiber.")
 
 /obj/item/organ/zombie_infection/process()
 	if(!owner)
@@ -49,9 +47,12 @@
 	if(owner.mob_biotypes & MOB_MINERAL)//does not process in inorganic things
 		return
 	if (causes_damage && !iszombie(owner) && owner.stat != DEAD)
-		owner.adjustToxLoss(1)
+		owner.adjustToxLoss(3)
 		if (prob(10))
 			to_chat(owner, "<span class='danger'>You feel sick...</span>")
+		if (prob(5))
+			to_chat(owner, "<span class='danger'>You feel a sharp pain in your head!</span>")
+			owner.adjustToxLoss(10)
 	if(timer_id)
 		return
 	if(owner.suiciding)
@@ -61,9 +62,7 @@
 	if(!owner.getorgan(/obj/item/organ/brain))
 		return
 	if(!iszombie(owner))
-		to_chat(owner, "<span class='cultlarge'>You can feel your heart stopping, but something isn't right... \
-		life has not abandoned your broken form. You can only feel a deep and immutable hunger that \
-		not even death can stop, you will rise again!</span>")
+		to_chat(owner, "<span class='cultlarge'>You can feel a sharp pain within your head that numbs all other sensation. Something bites down on your thoughts, and refuses to let go. Hunger. You hunger. Hosts. You must spread more. The hosts are here. Spread it.</span>")
 	var/revive_time = rand(revive_time_min, revive_time_max)
 	var/flags = TIMER_STOPPABLE
 	timer_id = addtimer(CALLBACK(src, .proc/zombify), revive_time, flags)
@@ -89,12 +88,12 @@
 		return
 
 	owner.grab_ghost()
-	owner.visible_message("<span class='danger'>[owner] suddenly convulses, as [owner.p_they()][stand_up ? " stagger to [owner.p_their()] feet and" : ""] gain a ravenous hunger in [owner.p_their()] eyes!</span>", "<span class='alien'>You HUNGER!</span>")
-	playsound(owner.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
+	owner.visible_message("<span class='danger'>[owner] suddenly convulses, as [owner.p_they()][stand_up ? " stagger to [owner.p_their()] feet and" : ""] gain a ravenous hunger in [owner.p_their()] eyes!</span>", "<span class='alien'>Spread the infestation.</span>")
+	playsound(owner.loc, 'sound/parasites/mockery_screech.ogg', 50, 1)
 	owner.do_jitter_animation(living_transformation_time)
 	owner.Stun(living_transformation_time)
-	to_chat(owner, "<span class='alertalien'>You are now a zombie! You claw and bite, turning your fellow crewmembers into friends that help spread the plague.</span>")
-	to_chat(owner, "<span class='alertwarning'>You are a zombie. Please act like one. Letting the crew remove the tumor inside your brain is a dick move to whoever infected you. Please do not do it.</span>")
+	to_chat(owner, "<span class='alertalien'>You are now an Infected Human. You claw, bite, and spread the infestation as far and wide as possible.</span>")
+	to_chat(owner, "<span class='alertwarning'>You are infected and are expected to act like it. Trying to get yourself killed or the parasite removed without a fight will not be tolerated.</span>")
 
 /obj/item/organ/zombie_infection/nodamage
 	causes_damage = FALSE

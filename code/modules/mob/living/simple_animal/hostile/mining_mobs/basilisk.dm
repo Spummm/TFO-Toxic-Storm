@@ -62,31 +62,32 @@
 
 //Watcher
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher
-	name = "watcher"
-	desc = "A levitating, eye-like creature held aloft by winglike formations of sinew. A sharp spine of crystal protrudes from its body."
-	icon = 'icons/mob/lavaland/watcher.dmi'
-	icon_state = "watcher"
-	icon_living = "watcher"
-	icon_aggro = "watcher"
-	icon_dead = "watcher_dead"
-	pixel_x = -10
+	name = "floating abscess"
+	desc = "A levitating hunk of gangrenous flesh and bone. Pus drips from a large sac on its front, occasionally spewing a torrent of viserca."
+	icon = 'icons/mob/parasites/infestation_mobs.dmi'
+	icon_state = "floating_abscess"
+	icon_living = "floating_abscess"
+	icon_aggro = "floating_abscess"
+	icon_dead = "floating_abscess_dead"
+	//pixel_x = -10
 	throw_message = "bounces harmlessly off of"
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attack_verb_continuous = "impales"
 	attack_verb_simple = "impale"
 	a_intent = INTENT_HARM
-	speak_emote = list("telepathically cries")
+	speak_emote = list("screeches")
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	stat_attack = UNCONSCIOUS
 	movement_type = FLYING
 	robust_searching = 1
-	crusher_loot = /obj/item/crusher_trophy/watcher_wing
+	crusher_loot = list()
 	loot = list()
 	butcher_results = list(/obj/item/stack/ore/diamond = 2, /obj/item/stack/sheet/sinew = 2, /obj/item/stack/sheet/bone = 1)
 	field_of_vision_type = FOV_270_DEGREES //Obviously, it's one eyeball.
 	search_objects = 1
 	wanted_objects = list(/obj/item/pen/survival, /obj/item/stack/ore/diamond)
+	projectiletype = /obj/item/projectile/parasite_vomit
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/BiologicalLife(seconds, times_fired)
 	if(!(. = ..()))
@@ -110,16 +111,16 @@
 		distanceb = get_dist(loc,bait.loc)
 		if(distanceb <= 1 && bait)
 			qdel(bait)
-			visible_message("<span class='notice'>[src] examines [bait] closer, and telekinetically shatters the pen.</span>")
+			visible_message("<span class='notice'>[src] examines [bait] closer, and shatters the pen.</span>")
 
-/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random/Initialize()
+/*/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random/Initialize()
 	. = ..()
 	if(prob(1))
 		if(prob(75))
 			new /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/magmawing(loc)
 		else
 			new /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/icewing(loc)
-		return INITIALIZE_HINT_QDEL
+		return INITIALIZE_HINT_QDEL*/
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/magmawing
 	name = "magmawing watcher"
@@ -180,3 +181,37 @@
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/tendril
 	fromtendril = TRUE
+
+/obj/item/projectile/parasite_vomit
+	name = "vile refuse"
+	icon_state = "neurotoxin"
+	pass_flags = PASSTABLE
+	damage = 15
+	damage_type = TOX
+	hitsound = 'sound/effects/watersplash.ogg'
+	eyeblur = 2
+	ricochet_chance = 0
+	is_reflectable = FALSE
+	var/stagger_duration = 3
+
+/obj/item/projectile/parasite_vomit/on_hit(atom/target, blocked = FALSE)
+	if(iscarbon(target) && prob(50))
+		var/mob/living/L = target
+		L.KnockToFloor(TRUE)
+		L.Stagger(stagger_duration)
+	if(ishuman(target))
+		try_to_vomitinfect(target)
+	return ..()
+
+/proc/try_to_vomitinfect(mob/living/carbon/human/target) //SKYRAT CHANGE - User
+	CHECK_DNA_AND_SPECIES(target)
+
+	if(NOZOMBIE in target.dna.species.species_traits)
+		// cannot infect any NOZOMBIE subspecies
+		return
+
+	var/obj/item/organ/zombie_infection/infection
+	infection = target.getorganslot(ORGAN_SLOT_ZOMBIE)
+	if(!infection && prob(30))
+		infection = new()
+		infection.Insert(target)

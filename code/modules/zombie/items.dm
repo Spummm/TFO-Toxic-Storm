@@ -80,3 +80,19 @@
 		user.updatehealth()
 		user.adjustOrganLoss(ORGAN_SLOT_BRAIN, -hp_gained) // Zom Bee gibbers "BRAAAAISNSs!1!"
 		user.adjust_nutrition(hp_gained, NUTRITION_LEVEL_FULL)
+
+/obj/item/zombie_hand/fleshbeast
+	name = "fleshbeast claw"
+	desc = "A huge, jagged claw capable of ripping people apart with ease. Very heavy, though."
+	hitsound = 'sound/effects/bang.ogg'
+	force = 30 
+	wound_bonus = -10
+	bare_wound_bonus = 25
+
+/obj/item/zombie_hand/ghoul
+	name = "ghoul claw"
+	desc = "A slender, jagged set of claws. While they're weaker than a normal fist, a ghoul makes up for it with their endurance."
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	force = 15
+	wound_bonus = -25
+	bare_wound_bonus = 10

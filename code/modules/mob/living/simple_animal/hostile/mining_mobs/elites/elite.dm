@@ -6,7 +6,7 @@
 /mob/living/simple_animal/hostile/asteroid/elite
 	name = "elite"
 	desc = "An elite monster, found in one of the strange tumors on lavaland."
-	icon = 'icons/mob/lavaland/lavaland_elites.dmi'
+	icon = 'icons/mob/parasites/elite_parasites.dmi'
 	faction = list("boss")
 	robust_searching = TRUE
 	ranged_ignores_vision = TRUE
@@ -130,7 +130,6 @@ While using this makes the system rely on OnFire, it still gives options for tim
 	var/mob/living/carbon/human/activator = null
 	var/mob/living/simple_animal/hostile/asteroid/elite/mychild = null
 	var/potentialspawns = list(/mob/living/simple_animal/hostile/asteroid/elite/broodmother,
-								/mob/living/simple_animal/hostile/asteroid/elite/pandora,
 								/mob/living/simple_animal/hostile/asteroid/elite/legionnaire,
 								/mob/living/simple_animal/hostile/asteroid/elite/herald)
 	icon = 'icons/obj/lavaland/tumor.dmi'
@@ -276,7 +275,7 @@ obj/structure/elite_tumor/proc/onEliteLoss()
 	playsound(loc,'sound/effects/tendril_destroyed.ogg', 200, 0, 50, TRUE, TRUE)
 	visible_message("<span class='boldwarning'>[src] begins to convulse violently before beginning to dissipate.</span>")
 	visible_message("<span class='boldwarning'>As [src] closes, something is forced up from down below.</span>")
-	var/obj/structure/closet/crate/necropolis/tendril/lootbox = new /obj/structure/closet/crate/necropolis/tendril(loc)
+	/*var/obj/structure/closet/crate/necropolis/tendril/lootbox = new /obj/structure/closet/crate/necropolis/tendril(loc)
 	if(!boosted)
 		mychild = null
 		activator = null
@@ -286,7 +285,7 @@ obj/structure/elite_tumor/proc/onEliteLoss()
 	if(lootpick == 1 && mychild.loot_drop != null)
 		new mychild.loot_drop(lootbox)
 	else
-		new /obj/item/tumor_shard(lootbox)
+		new /obj/item/tumor_shard(lootbox)*/
 	mychild = null
 	activator = null
 	qdel(src)
@@ -301,13 +300,13 @@ obj/structure/elite_tumor/proc/onEliteWon()
 		mychild.health = mychild.maxHealth
 	if(times_won == 1)
 		mychild.playsound_local(get_turf(mychild), 'sound/effects/magic.ogg', 40, 0)
-		to_chat(mychild, "<span class='boldwarning'>As the life in the activator's eyes fade, the forcefield around you dies out and you feel your power subside.\nDespite this inferno being your home, you feel as if you aren't welcome here anymore.\nWithout any guidance, your purpose is now for you to decide.</span>")
+		to_chat(mychild, "<span class='boldwarning'>As the life in the activator's eyes fade, the forcefield around you dies out and you feel your power subside.\nDespite this hell being your home, you feel as if you aren't welcome here anymore.\nWithout any guidance, your purpose is now for you to decide.</span>")
 		to_chat(mychild, "<b>Your max health has been halved, but can now heal by standing on your tumor.  Note, it's your only way to heal.\nBear in mind, if anyone interacts with your tumor, you'll be resummoned here to carry out another fight.  In such a case, you will regain your full max health.\nAlso, be weary of your fellow inhabitants, they likely won't be happy to see you!</b>")
-		to_chat(mychild, "<span class='big bold'>Note that you are a lavaland monster, and thus not allied to the station.  You should not cooperate or act friendly with any station crew unless under extreme circumstances!</span>")
+		to_chat(mychild, "<span class='big bold'>Note that you are a parasite monster, and thus not allied to the station.  You should not cooperate or act friendly with any station crew - spread the infestation.</span>")
 
 /obj/item/tumor_shard
 	name = "tumor shard"
-	desc = "A strange, sharp, crystal shard from an odd tumor on Lavaland.  Stabbing the corpse of a lavaland elite with this will revive them, assuming their soul still lingers.  Revived lavaland elites only have half their max health, but are completely loyal to their reviver."
+	desc = "A strange, sharp, crystal shard from an odd tumor. It serves no purpose."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "crevice_shard"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
@@ -318,7 +317,7 @@ obj/structure/elite_tumor/proc/onEliteWon()
 	throw_speed = 3
 	throw_range = 5
 
-/obj/item/tumor_shard/afterattack(atom/target, mob/user, proximity_flag)
+/*/obj/item/tumor_shard/afterattack(atom/target, mob/user, proximity_flag)
 	. = ..()
 	if(istype(target, /mob/living/simple_animal/hostile/asteroid/elite) && proximity_flag)
 		var/mob/living/simple_animal/hostile/asteroid/elite/E = target
@@ -339,7 +338,7 @@ obj/structure/elite_tumor/proc/onEliteWon()
 		E.owner = user
 		qdel(src)
 	else
-		to_chat(user, "<span class='info'>[src] only works on the corpse of a sentient lavaland elite.</span>")
+		to_chat(user, "<span class='info'>[src] only works on the corpse of a sentient lavaland elite.</span>")*/
 
 /obj/effect/temp_visual/elite_tumor_wall
 	name = "magic wall"

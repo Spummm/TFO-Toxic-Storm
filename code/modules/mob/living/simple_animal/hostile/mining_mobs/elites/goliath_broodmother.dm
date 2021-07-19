@@ -17,8 +17,8 @@
   */
 
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother
-	name = "goliath broodmother"
-	desc = "An example of sexual dimorphism, this female goliath looks much different than the males of her species.  She is, however, just as dangerous, if not more."
+	name = "abhorrent broodmother"
+	desc = "A spherical creature with long, spindly legs and large crimson eyes. A mouth of teeth on the bottom rattle out horrific screeches."
 	gender = FEMALE
 	icon_state = "broodmother"
 	icon_living = "broodmother"
@@ -40,7 +40,7 @@
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	mouse_opacity = MOUSE_OPACITY_ICON
 	deathmessage = "explodes into gore!"
-	loot_drop = /obj/item/crusher_trophy/broodmother_tongue
+	loot_drop = list()
 
 	attack_action_types = list(/datum/action/innate/elite_attack/tentacle_patch,
 								/datum/action/innate/elite_attack/spawn_children,
@@ -158,13 +158,13 @@
 
 //The goliath's children.  Pretty weak, simple mobs which are able to put a single tentacle under their target when at range.
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother_child
-	name = "baby goliath"
-	desc = "A young goliath recently born from it's mother.  While they hatch from eggs, said eggs are incubated in the mother until they are ready to be born."
-	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
-	icon_state = "goliath_baby"
-	icon_living = "goliath_baby"
-	icon_aggro = "goliath_baby"
-	icon_dead = "goliath_baby_dead"
+	name = "boiled scuttler"
+	desc = "An insectoid creature of infection. A large boil on its back threatens to burst at any moment."
+	icon = 'icons/mob/parasites/infestation_mobs.dmi'
+	icon_state = "boiled_scuttler"
+	icon_living = "boiled_scuttler"
+	icon_aggro = "boiled_scuttler"
+	icon_dead = "boiled_scuttler_dead"
 	icon_gib = "syndicate_gib"
 	maxHealth = 30
 	health = 30
@@ -173,7 +173,7 @@
 	attack_verb_continuous = "bashes against"
 	attack_verb_simple = "bash against"
 	attack_sound = 'sound/weapons/punch1.ogg'
-	throw_message = "does nothing to the rocky hide of the"
+	throw_message = "is swiftly dodged by"
 	speed = 2
 	move_to_delay = 5
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
@@ -183,6 +183,23 @@
 	deathmessage = "falls to the ground."
 	status_flags = CANPUSH
 	var/mob/living/simple_animal/hostile/asteroid/elite/broodmother/mother = null
+
+/mob/living/simple_animal/hostile/asteroid/elite/broodmother_child/AttackingTarget(target)
+	if(isliving(target))
+		if(ishuman(target))
+			try_to_parasite_scuttler(target)
+
+/proc/try_to_parasite_scuttler(mob/living/carbon/human/target)
+	CHECK_DNA_AND_SPECIES(target)
+
+	if(NOZOMBIE in target.dna.species.species_traits)
+		return
+
+	var/obj/item/organ/zombie_infection/infection
+	infection = target.getorganslot(ORGAN_SLOT_ZOMBIE)
+	if(!infection && prob(5))
+		infection = new()
+		infection.Insert(target)
 
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother_child/OpenFire(target)
 	ranged_cooldown = world.time + 40
@@ -198,7 +215,7 @@
 	if(mother != null)
 		mother.children_list -= src
 	visible_message("<span class='warning'>[src] explodes!</span>")
-	explosion(get_turf(loc),0,0,0,flame_range = 3, adminlog = FALSE)
+	explosion(get_turf(loc),0,0,0,flame_range = 2, adminlog = FALSE)
 	qdel()
 
 //Tentacles have less stun time compared to regular variant, to balance being able to use them much more often.  Also, 10 more damage.
@@ -231,7 +248,7 @@
 // Broodmother's loot: Broodmother Tongue
 /obj/item/crusher_trophy/broodmother_tongue
 	name = "broodmother tongue"
-	desc = "The tongue of a broodmother.  If attached a certain way, makes for a suitable crusher trophy."
+	desc = "The tongue of a broodmother."
 	icon = 'icons/obj/lavaland/elite_trophies.dmi'
 	icon_state = "broodmother_tongue"
 	denied_type = /obj/item/crusher_trophy/broodmother_tongue

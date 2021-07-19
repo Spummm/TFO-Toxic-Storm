@@ -18,7 +18,7 @@
 
 /mob/living/simple_animal/hostile/asteroid/elite/herald
 	name = "herald"
-	desc = "A monstrous beast which fires deadly projectiles at threats and prey."
+	desc = "Some kind of parasitic entity in the shape of a horribly malformed fetus. It grasps some sort of device by a large tendril on its back."
 	icon_state = "herald"
 	icon_living = "herald"
 	icon_aggro = "herald"
@@ -32,15 +32,15 @@
 	attack_verb_continuous = "preaches to"
 	attack_verb_simple = "preach to"
 	attack_sound = 'sound/magic/clockwork/ratvar_attack.ogg'
-	throw_message = "doesn't affect the purity of"
+	throw_message = "doesn't affect the"
 	speed = 4
 	move_to_delay = 10
 	mouse_opacity = MOUSE_OPACITY_ICON
 	deathsound = 'sound/magic/demon_dies.ogg'
 	deathmessage = "begins to shudder as it becomes transparent..."
-	loot_drop = /obj/item/clothing/neck/cloak/herald_cloak
+	loot_drop = list()
 
-	can_talk = 1
+	can_talk = 0
 
 	attack_action_types = list(/datum/action/innate/elite_attack/herald_trishot,
 								/datum/action/innate/elite_attack/herald_directionalshot,
@@ -192,7 +192,7 @@
 
 /mob/living/simple_animal/hostile/asteroid/elite/herald/mirror
 	name = "herald's mirror"
-	desc = "This fiendish work of magic copies the herald's attacks.  Seems logical to smash it."
+	desc = "Some sort of mirror, created by unknown means.  Seems logical to smash it."
 	health = 60
 	maxHealth = 60
 	icon_state = "herald_mirror"

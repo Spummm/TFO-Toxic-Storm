@@ -18,7 +18,7 @@
 
 /mob/living/simple_animal/hostile/asteroid/elite/legionnaire
 	name = "legionnaire"
-	desc = "A towering skeleton, embodying the terrifying power of Legion."
+	desc = "A towering skeleton, used as a puppet by a mass of infected flesh where the head should be."
 	icon_state = "legionnaire"
 	icon_living = "legionnaire"
 	icon_aggro = "legionnaire"
@@ -38,7 +38,7 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	deathsound = 'sound/magic/curse.ogg'
 	deathmessage = "'s arms reach out before it falls apart onto the floor, lifeless."
-	loot_drop = /obj/item/crusher_trophy/legionnaire_spine
+	loot_drop = list()
 
 	attack_action_types = list(/datum/action/innate/elite_attack/legionnaire_charge,
 								/datum/action/innate/elite_attack/head_detach,
@@ -171,7 +171,7 @@
 	icon_state = "legionnaire"
 	icon_living = "legionnaire"
 	icon_aggro = "legionnaire"
-	visible_message("<span class='boldwarning'>The top of [src]'s spine leaks a black liquid, forming into a skull!</span>")
+	visible_message("<span class='boldwarning'>The top of [src]'s spine leaks a black liquid, reforming the mass!</span>")
 
 /mob/living/simple_animal/hostile/asteroid/elite/legionnaire/proc/bonfire_teleport()
 	ranged_cooldown = world.time + 5
@@ -204,19 +204,19 @@
 	else
 		T = get_turf(src)
 	if(myhead != null)
-		myhead.visible_message("<span class='boldwarning'>[myhead] spews smoke from its maw!</span>")
+		myhead.visible_message("<span class='boldwarning'>[myhead] spews smoke from an orifice!</span>")
 	else if(!has_head)
 		visible_message("<span class='boldwarning'>[src] spews smoke from the tip of their spine!</span>")
 	else
-		visible_message("<span class='boldwarning'>[src] spews smoke from its maw!</span>")
+		visible_message("<span class='boldwarning'>[src] spews smoke from an orifice!</span>")
 	var/datum/effect_system/smoke_spread/smoke = new
 	smoke.set_up(2, T)
 	smoke.start()
 
 //The legionnaire's head.  Basically the same as any legion head, but we have to tell our creator when we die so they can generate another head.
 /mob/living/simple_animal/hostile/asteroid/elite/legionnairehead
-	name = "legionnaire head"
-	desc = "The legionnaire's head floating by itself.  One shouldn't get too close, though once it sees you, you really don't have a choice."
+	name = "legionnaire mass"
+	desc = "A mass of vile meat floating by itself.  One shouldn't get too close, though once it sees you, you really don't have a choice."
 	icon_state = "legionnaire_head"
 	icon_living = "legionnaire_head"
 	icon_aggro = "legionnaire_head"
@@ -233,7 +233,7 @@
 	speed = 0
 	move_to_delay = 2
 	del_on_death = 1
-	deathmessage = "crumbles away!"
+	deathmessage = "splatters away!"
 	faction = list()
 	ranged = FALSE
 	var/mob/living/simple_animal/hostile/asteroid/elite/legionnaire/body = null
