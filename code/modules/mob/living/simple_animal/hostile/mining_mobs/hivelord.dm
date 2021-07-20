@@ -125,10 +125,6 @@
 	var/dwarf_mob = FALSE
 	var/mob/living/carbon/human/stored_mob
 
-/mob/living/simple_animal/hostile/asteroid/hivelord/legion/Aggro()
-	. = ..()
-	playsound(src, 'sound/parasites/mockery_screech.ogg', rand(50,75), -1)
-
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion/random/Initialize()
 	. = ..()
 	if(prob(5))

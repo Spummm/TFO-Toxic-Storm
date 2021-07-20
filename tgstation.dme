@@ -15,8 +15,6 @@
 
 // BEGIN_INCLUDE
 #include "_maps\_basemap.dm"
-#include "_maps\map_files\Mining\Lavaland.dmm"
-#include "_maps\map_files\Mining\Lavaland_Skyrat.dmm"
 #include "code\_compile_options.dm"
 #include "code\world.dm"
 #include "code\__DEFINES\__512_compatibility_skyrat.dm"
@@ -1299,6 +1297,7 @@
 #include "code\game\turfs\simulated\floor\plating\asteroid.dm"
 #include "code\game\turfs\simulated\floor\plating\dirt.dm"
 #include "code\game\turfs\simulated\floor\plating\misc_plating.dm"
+#include "code\game\turfs\simulated\floor\plating\planetsurface.dm"
 #include "code\game\turfs\simulated\wall\material_walls.dm"
 #include "code\game\turfs\simulated\wall\mineral_walls.dm"
 #include "code\game\turfs\simulated\wall\misc_walls.dm"

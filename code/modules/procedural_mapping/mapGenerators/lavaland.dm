@@ -1,12 +1,12 @@
 
 /datum/mapGeneratorModule/bottomLayer/lavaland_default
-	spawnableTurfs = list(/turf/open/floor/plating/asteroid/infected_ground/lava_land_surface = 100)
+	spawnableTurfs = list(/turf/open/floor/plating/asteroid/wasteland/lava_land_surface = 100)
 
 /datum/mapGeneratorModule/bottomLayer/lavaland_mineral
-	spawnableTurfs = list(/turf/closed/mineral/random/volcanic = 100)
+	spawnableTurfs = list(/turf/closed/mineral/random/wasteland = 100)
 
 /datum/mapGeneratorModule/bottomLayer/lavaland_mineral/dense
-	spawnableTurfs = list(/turf/closed/mineral/random/high_chance/volcanic = 100)
+	spawnableTurfs = list(/turf/closed/mineral/random/high_chance/wasteland = 100)
 
 /datum/mapGeneratorModule/splatterLayer/lavalandMonsters
 	spawnableTurfs = list()

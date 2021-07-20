@@ -890,3 +890,88 @@
 
 /turf/closed/mineral/strong/ex_act(severity, target)
 	return
+
+/// PARASITE WASTELAND MINERALS
+/turf/closed/mineral/iron/wasteland
+	environment_type = "wasteland"
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	defer_change = TRUE
+
+/turf/closed/mineral/uranium/wasteland
+	environment_type = "wasteland"
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	defer_change = TRUE
+
+/turf/closed/mineral/diamond/wasteland
+	environment_type = "wasteland"
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	defer_change = TRUE
+
+/turf/closed/mineral/gold/wasteland
+	environment_type = "wasteland"
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	defer_change = TRUE
+
+/turf/closed/mineral/silver/wasteland
+	environment_type = "wasteland"
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	defer_change = TRUE
+
+/turf/closed/mineral/titanium/wasteland
+	environment_type = "wasteland"
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	defer_change = TRUE
+
+/turf/closed/mineral/plasma/wasteland
+	environment_type = "wasteland"
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	defer_change = TRUE
+
+/turf/closed/mineral/bscrystal/wasteland
+	environment_type = "wasteland"
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	defer_change = TRUE
+
+/turf/closed/mineral/gibtonite/wasteland
+	environment_type = "wasteland"
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	defer_change = TRUE
+
+/turf/closed/mineral/random/high_chance/wasteland
+	environment_type = "wasteland"
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	defer_change = TRUE
+
+/turf/closed/mineral/random/wasteland
+	environment_type = "basalt"
+	turf_type = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	defer_change = TRUE
+
+	mineralChance = 10
+	mineralSpawnChanceList = list(
+		/turf/closed/mineral/uranium/wasteland = 5, /turf/closed/mineral/diamond/wasteland = 1, /turf/closed/mineral/gold/wasteland = 10, /turf/closed/mineral/titanium/wasteland = 11,
+		/turf/closed/mineral/silver/wasteland = 12, /turf/closed/mineral/plasma/wasteland = 20, /turf/closed/mineral/iron/wasteland = 40,
+		/turf/closed/mineral/gibtonite/wasteland = 4, /turf/open/floor/plating/asteroid/airless/cave/volcanic = 1, /turf/closed/mineral/bscrystal/wasteland = 1)
+	icon_state = "rock_labor"

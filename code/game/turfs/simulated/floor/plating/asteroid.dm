@@ -87,7 +87,7 @@
 	contents_explosion(severity, target)
 
 /turf/open/floor/plating/lavaland_baseturf
-	baseturfs = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface //Changed to wasteland turf
 
 /turf/open/floor/plating/asteroid/basalt
 	name = "volcanic floor"
@@ -213,7 +213,7 @@
 		SPAWN_MEGAFAUNA = 6, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10)
 
 	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/volcanic/has_data
-	turf_type = /turf/open/floor/plating/asteroid/infected_ground/lava_land_surface
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 
 /turf/open/floor/plating/asteroid/airless/cave/volcanic/has_data //subtype for producing a tunnel with given data
