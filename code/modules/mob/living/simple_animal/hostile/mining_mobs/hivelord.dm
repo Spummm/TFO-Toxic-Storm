@@ -114,6 +114,7 @@
 	attack_verb_simple = "lash out at"
 	speak_emote = list("echoes")
 	attack_sound = 'sound/weapons/pierce.ogg'
+	death_sound = 'sound/parasites/mockery_die.ogg'
 	throw_message = "bounces harmlessly off of"
 	crusher_loot = list()
 	loot = list()
@@ -123,6 +124,10 @@
 	robust_searching = 1
 	var/dwarf_mob = FALSE
 	var/mob/living/carbon/human/stored_mob
+
+/mob/living/simple_animal/hostile/asteroid/hivelord/legion/Aggro()
+	. = ..()
+	playsound(src, 'sound/parasites/mockery_screech.ogg', rand(50,75), -1)
 
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion/random/Initialize()
 	. = ..()
@@ -191,10 +196,10 @@
 	attack_sound = 'sound/weapons/pierce.ogg'
 	throw_message = "is dodged swiftly by"
 	del_on_death = TRUE
-	stat_attack = DEAD
+	stat_attack = UNCONSCIOUS
 	robust_searching = 1
 	swarming = TRUE
-	var/can_infest_dead = TRUE
+	var/can_infest_dead = FALSE
 
 /mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/BiologicalLife(seconds, times_fired)
 	if(!(. = ..()))
@@ -230,6 +235,8 @@
 	icon_dead = "dwarf_legion"
 
 /mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/advanced
+	stat_attack = DEAD
+	can_infest_dead = TRUE
 
 //Legion that spawns Legions
 /mob/living/simple_animal/hostile/big_legion

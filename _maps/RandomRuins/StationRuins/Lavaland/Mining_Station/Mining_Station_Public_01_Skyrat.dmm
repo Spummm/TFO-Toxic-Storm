@@ -1633,6 +1633,18 @@
 /obj/structure/chair,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
+"vQ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/acidpus/smooth/planet_surface,
+/area/mine/laborcamp/security)
 "wc" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer3{
 	dir = 4
@@ -1846,7 +1858,7 @@
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "zI" = (
-/turf/open/lava/smooth/lava_land_surface,
+/turf/open/acidpus/smooth/planet_surface,
 /area/lavaland/surface/outdoors/explored)
 "zN" = (
 /obj/effect/turf_decal/tile/brown,
@@ -3741,7 +3753,7 @@
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
 "VT" = (
-/turf/open/lava/smooth/lava_land_surface,
+/turf/open/acidpus/smooth/planet_surface,
 /area/lavaland/surface/outdoors)
 "VY" = (
 /obj/effect/turf_decal/tile/purple{
@@ -6406,8 +6418,8 @@ VT
 UM
 JJ
 Qo
-KZ
-KZ
+vQ
+vQ
 KZ
 KZ
 KZ

@@ -7,7 +7,7 @@
 	obj_damage = 30
 	environment_smash = ENVIRONMENT_SMASH_WALLS
 	minbodytemp = 0
-	maxbodytemp = 200
+	maxbodytemp = INFINITY
 	response_harm_continuous = "strikes"
 	response_harm_simple = "strike"
 	status_flags = 0

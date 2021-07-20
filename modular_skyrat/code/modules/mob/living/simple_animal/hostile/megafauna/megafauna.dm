@@ -89,7 +89,7 @@
 	if(. > 0 && stat == CONSCIOUS)
 		Retaliate()
 
-/mob/living/simple_animal/hostile/megafauna/Life()
+/*/mob/living/simple_animal/hostile/megafauna/Life()
 	..()
 	if(songend)
 		if(world.time >= songend)
@@ -104,7 +104,7 @@
 		glory()
 	if(retaliated)
 		if(retaliatedcooldown < world.time)
-			retaliated = FALSE
+			retaliated = FALSE*/
 
 /mob/living/simple_animal/hostile/megafauna/proc/glory()
 	desc += "<br><b>[src] is staggered and can be glory killed!</b>"

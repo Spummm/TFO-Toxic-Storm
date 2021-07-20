@@ -44,6 +44,7 @@ Difficulty: Very Hard
 	move_to_delay = 10
 	ranged = 1
 	pixel_x = -32
+	movement_type = GROUND
 	del_on_death = 0
 	medal_type = BOSS_MEDAL_COLOSSUS
 	score_type = COLOSSUS_SCORE
@@ -54,7 +55,7 @@ Difficulty: Very Hard
 	death_sound = 'sound/health/death_synth.ogg'
 
 /mob/living/simple_animal/hostile/megafauna/colossus/devour(mob/living/L)
-	visible_message("<span class='colossus'>[src] disintegrates [L]!</span>")
+	visible_message("<span class='colossus'>[src] focuses its cannons on [L], disintegrating them in a flash of light!!</span>")
 	L.dust()
 
 /mob/living/simple_animal/hostile/megafauna/colossus/OpenFire()
@@ -158,7 +159,7 @@ Difficulty: Very Hard
 		if(counter < 1)
 			counter = 16
 		shoot_projectile(start_turf, counter * 22.5)
-		playsound(get_turf(src), 'sound/weapons/deathmech_alert.ogg', 20, 1)
+		playsound(get_turf(src), 'sound/weapons/deathmech_fire.ogg', 20, 1)
 		sleep(1)
 
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/shoot_projectile(turf/marker, set_angle)
@@ -174,14 +175,14 @@ Difficulty: Very Hard
 
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/random_shots()
 	var/turf/U = get_turf(src)
-	playsound(U, 'sound/weapons/deathmech_alert.ogg', 300, 1, 5)
+	playsound(U, 'sound/weapons/deathmech_fire.ogg', 300, 1, 5)
 	for(var/T in RANGE_TURFS(12, U) - U)
 		if(prob(5))
 			shoot_projectile(T)
 
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/blast(set_angle)
 	var/turf/target_turf = get_turf(target)
-	playsound(src, 'sound/weapons/deathmech_alert.ogg', 200, 1, 2)
+	playsound(src, 'sound/weapons/deathmech_fire.ogg', 200, 1, 2)
 	newtonian_move(get_dir(target_turf, src))
 	var/angle_to_target = Get_Angle(src, target_turf)
 	if(isnum(set_angle))
@@ -193,7 +194,7 @@ Difficulty: Very Hard
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/dir_shots(list/dirs)
 	if(!islist(dirs))
 		dirs = GLOB.alldirs.Copy()
-	playsound(src, 'sound/weapons/deathmech_alert.ogg', 200, 1, 2)
+	playsound(src, 'sound/weapons/deathmech_fire.ogg', 200, 1, 2)
 	for(var/d in dirs)
 		var/turf/E = get_step(src, d)
 		shoot_projectile(E)
@@ -203,7 +204,7 @@ Difficulty: Very Hard
 		if(M.client)
 			flash_color(M.client, "#C80000", 1)
 			shake_camera(M, 4, 3)
-	playsound(src, 'sound/magic/clockwork/narsie_attack.ogg', 200, 1)
+	playsound(src, 'sound/weapons/deathmech_alert.ogg', 200, 1)
 
 
 

@@ -312,7 +312,7 @@
 				O.resistance_flags &= ~ACID_PROOF
 			if(O.armor.acid > 50) //obj with 100% acid armor still get slowly burned away.
 				O.armor = O.armor.setRating(acid = 50)
-			//O.fire_act(10000, 1000)
+			O.acid_act(10000, 1000)
 
 		else if (isliving(thing))
 			. = 1

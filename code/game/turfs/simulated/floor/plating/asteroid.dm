@@ -99,8 +99,8 @@
 	floor_variance = 15
 	digResult = /obj/item/stack/ore/glass/basalt
 
-/turf/open/floor/plating/asteroid/basalt/lava //lava underneath
-	baseturfs = /turf/open/lava/smooth
+/turf/open/floor/plating/asteroid/basalt/lava //lava underneath //ATTENTION!!! THIS HAS BEEN CHANGED TO ACIDPUS FOR THE TIME BEING.
+	baseturfs = /turf/open/acidpus/smooth
 
 /turf/open/floor/plating/asteroid/basalt/airless
 	baseturfs = /turf/open/floor/plating/asteroid/airless
@@ -162,7 +162,7 @@
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 	planetary_atmos = TRUE
-	baseturfs = /turf/open/lava/smooth/lava_land_surface
+	baseturfs = /turf/open/acidpus/smooth/planet_surface //CHANGED TO ACIDPUS BECAUSE I CAN NO LONGER BE FUCKED
 
 
 

@@ -95,6 +95,7 @@
 	icon_dead = "hateful_orbwalker_dead"
 	throw_message = "does nothing to the tough hide of the"
 	pre_attack_icon = "hateful_orbwalker"
+	death_sound = 'sound/parasites/hatefulorb_death.ogg'
 	crusher_loot = list()
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 2, /obj/item/stack/sheet/bone = 2)
 	guaranteed_butcher_results = list()
@@ -103,6 +104,7 @@
 	robust_searching = 1
 
 /mob/living/simple_animal/hostile/asteroid/goliath/beast/AttackingTarget(target)
+	. = ..()
 	if(isliving(target))
 		if(ishuman(target))
 			try_to_parasite_goliath(target)
