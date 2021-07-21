@@ -1,19 +1,19 @@
 //Necropolis Tendrils, which spawn lavaland monsters and break into a chasm when killed
 /obj/structure/spawner/lavaland
-	name = "necropolis tendril"
-	desc = "A vile tendril of corruption, originating deep underground. Terrible monsters are pouring out of it."
+	name = "nesting orifice"
+	desc = "Vile infected flora. Parasites and their victims pour out of it."
 
-	icon = 'icons/mob/nest.dmi'
-	icon_state = "tendril"
+	icon = 'icons/mob/parasites/nesting_orifice.dmi'
+	icon_state = "infested_nesting_orifice"
 
 	faction = list("mining")
 	max_mobs = 3
 	max_integrity = 250
 	mob_types = list(/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/tendril)
 
-	move_resist=INFINITY // just killing it tears a massive hole in the ground, let's not move it
+	move_resist=INFINITY
 	anchored = TRUE
-	resistance_flags = FIRE_PROOF | LAVA_PROOF
+	resistance_flags = ACID_PROOF | LAVA_PROOF
 
 	var/gps = null
 	var/obj/effect/light_emitter/tendril/emitted_light
@@ -40,8 +40,9 @@ GLOBAL_LIST_INIT(tendrils, list())
 	GLOB.tendrils += src
 
 /obj/structure/spawner/lavaland/deconstruct(disassembled)
-	new /obj/effect/collapse(loc)
-	new /obj/structure/closet/crate/necropolis/tendril(loc)
+	/*new /obj/effect/collapse(loc)*/
+	/*new /obj/structure/closet/crate/necropolis/tendril(loc)*/
+	playsound(loc,'sound/effects/tendril_destroyed.ogg', 200, 0, 50, 1, 1)
 	return ..()
 
 
@@ -65,7 +66,7 @@ GLOBAL_LIST_INIT(tendrils, list())
 /obj/effect/light_emitter/tendril
 	set_luminosity = 4
 	set_cap = 2.5
-	light_color = LIGHT_COLOR_LAVA
+	light_color = LIGHT_COLOR_TUNGSTEN
 
 /obj/effect/collapse
 	name = "collapsing necropolis tendril"

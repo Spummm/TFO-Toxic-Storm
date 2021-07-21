@@ -24,20 +24,20 @@ Difficulty: Hard
 */
 
 /mob/living/simple_animal/hostile/megafauna/bubblegum
-	name = "bubblegum"
-	desc = "In what passes for a hierarchy among slaughter demons, this one is king."
+	name = "abhorrent fleshsphere"
+	desc = "A large floating mass of decay. Large maws of jagged teeth sprout and disappear at random, letting out screams. It seems to warp the air around it, shrinking and growing at will."
 	threat = 35
 	health = 2500
 	maxHealth = 2500
 	attack_verb_continuous = "rends"
 	attack_verb_simple = "rend"
 	attack_sound = 'sound/magic/demon_attack1.ogg'
-	icon_state = "bubblegum"
-	icon_living = "bubblegum"
+	icon_state = "abhorrent_fleshsphere"
+	icon_living = "abhorrent_fleshsphere"
 	icon_dead = ""
 	friendly_verb_continuous = "stares down"
 	friendly_verb_simple = "stare down"
-	icon = 'icons/mob/lavaland/96x96megafauna.dmi'
+	icon = 'icons/mob/parasites/96x96parasites.dmi'
 	speak_emote = list("gurgles")
 	armour_penetration = 40
 	melee_damage_lower = 40
@@ -49,15 +49,15 @@ Difficulty: Hard
 	pixel_x = -32
 	gender = MALE
 	del_on_death = 1
-	crusher_loot = list(/obj/structure/closet/crate/necropolis/bubblegum/crusher)
-	loot = list(/obj/structure/closet/crate/necropolis/bubblegum)
+	crusher_loot = list()
+	loot = list()
 	var/charging = 0
 	medal_type = BOSS_MEDAL_BUBBLEGUM
 	score_type = BUBBLEGUM_SCORE
-	deathmessage = "sinks into a pool of blood, fleeing the battle. You've won, for now... "
+	deathmessage = "begins to rapidly decay, its body letting out an awful odor as flesh, bone, and everything else that had constructed it fades away into dust."
 	death_sound = 'sound/magic/enter_blood.ogg'
 
-	footstep_type = FOOTSTEP_MOB_HEAVY
+	footstep_type = null
 
 /obj/item/gps/internal/bubblegum
 	icon_state = null
@@ -228,7 +228,7 @@ Difficulty: Hard
 
 /mob/living/simple_animal/hostile/asteroid/hivelordbrood/slaughter
 	name = "slaughterling"
-	desc = "Though not yet strong enough to create a true physical form, it's nonetheless determined to murder you."
+	desc = "A creature made entirely of meat, intent on tearing you apart. What are you doing staring at it? Run!"
 	icon_state = "bloodbrood"
 	icon_living = "bloodbrood"
 	icon_aggro = "bloodbrood"

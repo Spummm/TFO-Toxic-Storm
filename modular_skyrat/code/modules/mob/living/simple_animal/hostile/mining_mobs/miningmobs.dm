@@ -1,3 +1,4 @@
+//ATTENTION - This is all legacy SKYRAT code and should be removed when we can.
 /mob/living/simple_animal/hostile/asteroid
 	var/glorykill = FALSE //CAN THIS MOTHERFUCKER BE SNAPPED IN HALF FOR HEALTH?
 	var/list/glorymessageshand = list() //WHAT THE FUCK ARE THE MESSAGES SAID BY THIS FUCK WHEN HE'S GLORY KILLED WITH AN EMPTY HAND?
@@ -7,14 +8,14 @@
 	var/gloryhealth = 7.5
 	var/glorymodifier = 1.5
 
-/mob/living/simple_animal/hostile/asteroid/Life()
+/*/mob/living/simple_animal/hostile/asteroid/Life()
 	..()
 	if(health <= (maxHealth/10 * glorymodifier) && !glorykill && stat != DEAD)
 		glorykill = TRUE
 		glory()
 	else if(health > (maxHealth/10 * glorymodifier) && glorykill && stat != DEAD)
 		glorykill = FALSE
-		unglory()
+		unglory()*/
 
 /mob/living/simple_animal/hostile/asteroid/proc/glory()
 	desc += "<br><b>[src] is staggered and can be glory killed!</b>"

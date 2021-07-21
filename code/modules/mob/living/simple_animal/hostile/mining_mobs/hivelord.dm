@@ -98,13 +98,13 @@
 
 //Legion
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion
-	name = "legion"
-	desc = "You can still see what was once a human under the shifting mass of corruption."
-	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
-	icon_state = "legion"
-	icon_living = "legion"
-	icon_aggro = "legion"
-	icon_dead = "legion"
+	name = "humanoid mockery"
+	desc = "A horrific abomination of parasitized organic matter. It scuttles around in an unnatural way, animated by a legion of flies which constantly surround its decaying body."
+	icon = 'icons/mob/parasites/infestation_mobs.dmi'
+	icon_state = "humanoid_mockery"
+	icon_living = "humanoid_mockery"
+	icon_aggro = "humanoid_mockery"
+	icon_dead = "humanoid_mockery"
 	icon_gib = "syndicate_gib"
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	obj_damage = 60
@@ -114,9 +114,10 @@
 	attack_verb_simple = "lash out at"
 	speak_emote = list("echoes")
 	attack_sound = 'sound/weapons/pierce.ogg'
+	death_sound = 'sound/parasites/mockery_die.ogg'
 	throw_message = "bounces harmlessly off of"
-	crusher_loot = /obj/item/crusher_trophy/legion_skull
-	loot = list(/obj/item/organ/regenerative_core/legion)
+	crusher_loot = list()
+	loot = list()
 	brood_type = /mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion
 	del_on_death = 1
 	stat_attack = UNCONSCIOUS
@@ -131,12 +132,12 @@
 		return INITIALIZE_HINT_QDEL
 
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion/dwarf
-	name = "dwarf legion"
-	desc = "You can still see what was once a rather small human under the shifting mass of corruption."
-	icon_state = "dwarf_legion"
-	icon_living = "dwarf_legion"
-	icon_aggro = "dwarf_legion"
-	icon_dead = "dwarf_legion"
+	name = "bipedal mockery"
+	desc = "A horrific abomination of parasitized organic matter. It leaps about in an unnatural way, animated by a legion of flies which constantly surround its bloated and decaying form."
+	icon_state = "bipedal_mockery"
+	icon_living = "bipedal_mockery"
+	icon_aggro = "bipedal_mockery"
+	icon_dead = "bipedal_mockery"
 	maxHealth = 60
 	health = 60
 	speed = 2 //faster!
@@ -150,7 +151,7 @@
 	brood_type = /mob/living/simple_animal/hostile/poison/bees/toxin
 
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion/death(gibbed)
-	visible_message("<span class='warning'>The skulls on [src] wail in anger as they flee from their dying host!</span>")
+	visible_message("<span class='warning'>The boils on [src] crunch and twist as they expand outward!</span>")
 	var/turf/T = get_turf(src)
 	if(T)
 		if(stored_mob)
@@ -169,13 +170,13 @@
 
 //Legion skull
 /mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion
-	name = "legion"
-	desc = "One of many."
-	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
-	icon_state = "legion_head"
-	icon_living = "legion_head"
-	icon_aggro = "legion_head"
-	icon_dead = "legion_head"
+	name = "engorged botfly"
+	desc = "A flying mass of corrupted meat in the vague shape of a fly. It scurries about the air, looking for something to infest."
+	icon = 'icons/mob/parasites/infestation_mobs.dmi'
+	icon_state = "engorged_botfly"
+	icon_living = "engorged_botfly"
+	icon_aggro = "engorged_botfly"
+	icon_dead = "engorged_botfly"
 	icon_gib = "syndicate_gib"
 	friendly_verb_continuous = "buzzes near"
 	friendly_verb_simple = "buzz near"
@@ -189,7 +190,7 @@
 	attack_verb_simple = "bite"
 	speak_emote = list("echoes")
 	attack_sound = 'sound/weapons/pierce.ogg'
-	throw_message = "is shrugged off by"
+	throw_message = "is dodged swiftly by"
 	del_on_death = TRUE
 	stat_attack = UNCONSCIOUS
 	robust_searching = 1
@@ -272,9 +273,9 @@
 
 //Tendril-spawned Legion remains, the charred skeletons of those whose bodies sank into laval or fell into chasms.
 /obj/effect/mob_spawn/human/corpse/charredskeleton
-	name = "charred skeletal remains"
+	name = "decayed skeletal remains"
 	burn_damage = 1000
-	mob_name = "ashen skeleton"
+	mob_name = "rotten skeleton"
 	mob_gender = NEUTER
 	husk = FALSE
 	mob_species = /datum/species/skeleton
@@ -295,7 +296,7 @@
 	H.dna.add_mutation(DWARFISM)
 
 /obj/effect/mob_spawn/human/corpse/damaged/legioninfested/Initialize()
-	var/type = pickweight(list("Miner" = 45, "Ashwalker" = 10, "Golem" = 10,"Clown" = 10, pick(list("Shadow", "YeOlde","Operative", "Cultist", "Lavaknight")) = 4, "Assistant" = 20, "Beelegion" = 1))
+	var/type = pickweight(list("Miner" = 100))
 	switch(type)
 		if("Miner")
 			mob_species = pickweight(list(/datum/species/human = 70, /datum/species/lizard = 26, /datum/species/fly = 2, /datum/species/plasmaman = 2))
@@ -322,7 +323,7 @@
 				r_pocket = pickweight(list(/obj/item/stack/marker_beacon = 20, /obj/item/stack/spacecash/c1000 = 7, /obj/item/reagent_containers/hypospray/medipen/survival = 2, /obj/item/borg/upgrade/modkit/damage = 1 ))
 			if(prob(10))
 				l_pocket = pickweight(list(/obj/item/stack/spacecash/c1000 = 7, /obj/item/reagent_containers/hypospray/medipen/survival = 2, /obj/item/borg/upgrade/modkit/cooldown = 1 ))
-		if("Ashwalker")
+		/*if("Ashwalker")
 			mob_species = /datum/species/lizard/ashwalker
 			uniform = /obj/item/clothing/under/costume/gladiator/ash_walker
 			if(prob(95))
@@ -439,7 +440,7 @@
 			id = /obj/item/card/id
 			l_pocket = /obj/item/reagent_containers/food/drinks/soda_cans/buzz_fuzz
 			mask = /obj/item/clothing/mask/rat/bee
-	. = ..()
+	. = ..()*/
 
 // Snow Legion
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion/snow

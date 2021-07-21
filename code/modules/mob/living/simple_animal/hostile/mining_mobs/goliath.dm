@@ -86,21 +86,40 @@
 
 //Lavaland Goliath
 /mob/living/simple_animal/hostile/asteroid/goliath/beast
-	name = "goliath"
-	desc = "A hulking, armor-plated beast with long tendrils arching from its back."
-	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
-	icon_state = "goliath"
-	icon_living = "goliath"
-	icon_aggro = "goliath"
-	icon_dead = "goliath_dead"
+	name = "hateful orbwalker"
+	desc = "A hulking mass of tentacled flesh. Four eyes stare ahead, filled with an unrestrained malice."
+	icon = 'icons/mob/parasites/infestation_mobs.dmi'
+	icon_state = "hateful_orbwalker"
+	icon_living = "hateful_orbwalker"
+	icon_aggro = "hateful_orbwalker"
+	icon_dead = "hateful_orbwalker_dead"
 	throw_message = "does nothing to the tough hide of the"
-	pre_attack_icon = "goliath2"
-	crusher_loot = /obj/item/crusher_trophy/goliath_tentacle
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/goliath = 2, /obj/item/stack/sheet/bone = 2)
-	guaranteed_butcher_results = list(/obj/item/stack/sheet/animalhide/goliath_hide = 1)
+	pre_attack_icon = "hateful_orbwalker"
+	death_sound = 'sound/parasites/hatefulorb_death.ogg'
+	crusher_loot = list()
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 2, /obj/item/stack/sheet/bone = 2)
+	guaranteed_butcher_results = list()
 	loot = list()
 	stat_attack = UNCONSCIOUS
 	robust_searching = 1
+
+/mob/living/simple_animal/hostile/asteroid/goliath/beast/AttackingTarget(target)
+	. = ..()
+	if(isliving(target))
+		if(ishuman(target))
+			try_to_parasite_goliath(target)
+
+/proc/try_to_parasite_goliath(mob/living/carbon/human/target)
+	CHECK_DNA_AND_SPECIES(target)
+
+	if(NOZOMBIE in target.dna.species.species_traits)
+		return
+
+	var/obj/item/organ/zombie_infection/infection
+	infection = target.getorganslot(ORGAN_SLOT_ZOMBIE)
+	if(!infection && prob(30))
+		infection = new()
+		infection.Insert(target)
 
 /mob/living/simple_animal/hostile/asteroid/goliath/beast/random/Initialize()
 	. = ..()
@@ -152,7 +171,7 @@
 
 //tentacles
 /obj/effect/temp_visual/goliath_tentacle
-	name = "goliath tentacle"
+	name = "tentacle"
 	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	icon_state = "Goliath_tentacle_spawn"
 	layer = BELOW_MOB_LAYER

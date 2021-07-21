@@ -1,12 +1,12 @@
 /obj/item/organ/zombie_infection
-	desc = "A black web of pus and viscera, filled with curious swirling dots."
-	icon = 'modular_skyrat/icons/obj/items/nanitetumor.dmi'
-	icon_state = "nanitetumor"
+	desc = "A small, wriggling worm. Creatures such as this are responsible for the basic infestation of creatures."
+	icon = 'icons/mob/parasites/misc_infectionitems.dmi'
+	icon_state = "parasite_larvae_small"
 
-/obj/item/organ/zombie_infection/emp_act(severity)
-	. = ..()
-	if(. & EMP_PROTECT_SELF)
-		return
-	else
-		owner.adjustFireLoss(10 * severity)
-		owner.DefaultCombatKnockdown(50 * severity)
+/obj/item/organ/zombie_infection/mature
+	desc = "A moderately sized worm. Creatures such as these are responsible for advanced stages of infestation, or for infecting creatures with more robust immune systems."
+	icon = 'icons/mob/parasites/misc_infectionitems.dmi'
+	icon_state = "parasite_larvae_mature"
+	living_transformation_time = 60
+	converts_living = TRUE
+

@@ -35,8 +35,8 @@ Difficulty: Normal
 */
 
 /mob/living/simple_animal/hostile/megafauna/hierophant
-	name = "hierophant"
-	desc = "A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat."
+	name = "scornful drummaster"
+	desc = "A large snake-like creature, with some sort of spear or club stuck through its body. An attempt to destroy it gone hopelessly awry, the artifact imbeded in its chest has granted it an uncanny intellect."
 	threat = 30
 	health = 2500
 	maxHealth = 2500
@@ -47,9 +47,9 @@ Difficulty: Normal
 	icon_living = "hierophant"
 	friendly_verb_continuous = "stares down"
 	friendly_verb_simple = "stare down"
-	icon = 'icons/mob/lavaland/hierophant_new.dmi'
+	icon = 'icons/mob/parasites/scornful_drummaster.dmi'
 	faction = list("boss") //asteroid mobs? get that shit out of my beautiful square house
-	speak_emote = list("preaches")
+	speak_emote = list("screeches")
 	armour_penetration = 75
 	melee_damage_lower = 15
 	melee_damage_upper = 20
@@ -666,7 +666,7 @@ Difficulty: Normal
 
 /obj/effect/hierophant
 	name = "hierophant beacon"
-	desc = "A strange beacon, allowing mass teleportation for those able to use it."
+	desc = "A marvel of engineering unknown. Allows mass teleportation."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "hierophant_tele_off"
 	light_range = 2
@@ -703,5 +703,5 @@ Difficulty: Normal
 /obj/item/gps/internal/hierophant
 	icon_state = null
 	gpstag = "Zealous Signal"
-	desc = "Heed its words."
+	desc = "You can hear music in an unknown language."
 	invisibility = 100

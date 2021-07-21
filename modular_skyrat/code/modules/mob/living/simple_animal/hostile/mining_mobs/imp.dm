@@ -1,19 +1,19 @@
 //A speedy, annoying and scaredy demon
 /mob/living/simple_animal/hostile/asteroid/imp
-	name = "lava imp"
-	desc = "Lowest on the hierarchy of slaughter demons, this one is still nothing to sneer at."
-	icon = 'modular_skyrat/icons/mob/lavaland/lavaland_monsters.dmi'
-	icon_state = "imp"
-	icon_living = "imp"
-	icon_aggro = "imp"
-	icon_dead = "imp_dead"
+	name = "vile maw"
+	desc = "A creature that bridges the gap between flora and fauna. It spits a toxic, infectious sludge from an orifice at the center."
+	icon = 'icons/mob/parasites/infestation_mobs.dmi'
+	icon_state = "malicious_spitter"
+	icon_living = "malicious_spitter"
+	icon_aggro = "malicious_spitter"
+	icon_dead = "malicious_spitter_dead"
 	icon_gib = "syndicate_gib"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	move_to_delay = 4
-	projectiletype = /obj/item/projectile/magic/impfireball
-	projectilesound = 'modular_skyrat/sound/misc/impranged.wav'
+	projectiletype = /obj/item/projectile/parasite_vomit/greater
+	projectilesound = 'sound/effects/splash.ogg'
 	ranged = 1
-	ranged_message = "shoots a fireball"
+	ranged_message = "spits toxic sludge"
 	ranged_cooldown_time = 70
 	throw_message = "does nothing against the hardened skin of"
 	vision_range = 5
@@ -24,39 +24,39 @@
 	obj_damage = 60
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attack_verb_continuous = "claws"
-	attack_verb_simple = "claw"
+	attack_verb_continuous = "bites"
+	attack_verb_simple = "bite"
 	a_intent = INTENT_HARM
 	speak_emote = list("groans")
-	attack_sound = 'modular_skyrat/sound/misc/impattacks.wav'
+	attack_sound = 'sound/weapons/bladeslice.ogg'
 	aggro_vision_range = 15
 	retreat_distance = 5
 	gold_core_spawnable = HOSTILE_SPAWN
-	crusher_loot = /obj/item/crusher_trophy/blaster_tubes/impskull
+	crusher_loot = list()
 	loot = list()
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab = 2, /obj/item/stack/sheet/bone = 3, /obj/item/stack/sheet/sinew = 2)
 	robust_searching = FALSE
-	death_sound = 'modular_skyrat/sound/misc/impdies.wav'
+	death_sound = 'sound/alien/voice/hurt1.ogg'
 	glorymessageshand = list("grabs the imp's eyes and rips them out, shoving the bloody imp aside!", "grabs and crushes the imp's skull apart with their bare hands!", "rips the imp's head clean off with their bare hands!")
 	glorymessagespka = list("sticks their PKA into the imp's mouth and shoots it, showering everything in gore!", "bashes the imp's head into their chest with their PKA!", "shoots off both legs of the imp with their PKA!")
 	glorymessagespkabayonet = list("slices the imp's head off by the neck with the PKA's bayonet!", "repeatedly stabs the imp in their gut with the PKA's bayonet!")
 	glorymessagescrusher = list("chops the imp horizontally in half with their crusher in one swift move!", "chops off the imp's legs with their crusher and kicks their face hard, exploding it while they're in the air!", "slashes each of the imp's arms off by the shoulder with their crusher!")
 
-/mob/living/simple_animal/hostile/asteroid/imp/attacked_by(obj/item/I, mob/living/user)
+/*/mob/living/simple_animal/hostile/asteroid/imp/attacked_by(obj/item/I, mob/living/user)
 	. = ..()
 	playsound(src, 'modular_skyrat/sound/misc/impinjured.wav', rand(25,100), -1) //HURT ME PLENTY
 
 /mob/living/simple_animal/hostile/asteroid/imp/bullet_act(obj/item/projectile/P)
 	. = ..()
-	playsound(src, 'modular_skyrat/sound/misc/impinjured.wav', rand(25,100), -1)
+	playsound(src, 'modular_skyrat/sound/misc/impinjured.wav', rand(25,100), -1)*/
 
-/mob/living/simple_animal/hostile/asteroid/imp/Aggro()
+/*/mob/living/simple_animal/hostile/asteroid/imp/Aggro()
 	. = ..()
-	playsound(src, pick('modular_skyrat/sound/misc/impsight.wav', 'modular_skyrat/sound/misc/impsight2.wav'), rand(50,75), -1)
+	playsound(src, 'sound/alien/voice/gnarl1.ogg', rand(50,75), -1)*/
 
-/mob/living/simple_animal/hostile/asteroid/imp/LoseAggro()
+/*/mob/living/simple_animal/hostile/asteroid/imp/LoseAggro()
 	. = ..()
-	playsound(src, pick('modular_skyrat/sound/misc/impnearby.wav', 'modular_skyrat/sound/misc/impnearby.wav'), rand(25, 60), -1)
+	playsound(src, pick('modular_skyrat/sound/misc/impnearby.wav', 'modular_skyrat/sound/misc/impnearby.wav'), rand(25, 60), -1)*/
 
 /obj/item/projectile/magic/impfireball //bobyot y u no use child of fireball
 	name = "demonic fireball" //because it fucking explodes and deals brute damage even when values are set to -1

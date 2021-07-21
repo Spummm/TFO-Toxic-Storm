@@ -87,7 +87,7 @@
 	contents_explosion(severity, target)
 
 /turf/open/floor/plating/lavaland_baseturf
-	baseturfs = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
+	baseturfs = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface //Changed to wasteland turf
 
 /turf/open/floor/plating/asteroid/basalt
 	name = "volcanic floor"
@@ -99,8 +99,8 @@
 	floor_variance = 15
 	digResult = /obj/item/stack/ore/glass/basalt
 
-/turf/open/floor/plating/asteroid/basalt/lava //lava underneath
-	baseturfs = /turf/open/lava/smooth
+/turf/open/floor/plating/asteroid/basalt/lava //lava underneath //ATTENTION!!! THIS HAS BEEN CHANGED TO ACIDPUS FOR THE TIME BEING.
+	baseturfs = /turf/open/acidpus/smooth
 
 /turf/open/floor/plating/asteroid/basalt/airless
 	baseturfs = /turf/open/floor/plating/asteroid/airless
@@ -121,12 +121,48 @@
 		if("basalt5", "basalt9")
 			B.set_light(1.4, 0.6, LIGHT_COLOR_LAVA) //barely anything!
 
+/turf/open/floor/plating/parasite_baseturf
+	baseturfs = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
+
+/turf/open/floor/plating/asteroid/infected_ground //PLACEHOLDER!!! TODO: Custom floor sprites.
+	name = "ashy turf"
+	baseturfs = /turf/open/floor/plating/asteroid/basalt
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "basalt"
+	icon_plating = "basalt"
+	environment_type = "basalt"
+	floor_variance = 15
+	digResult = /obj/item/stack/ore/glass/basalt
+
+/turf/open/floor/plating/asteroid/infected_ground/acid //acid underneath
+	baseturfs = /turf/open/acidpus/smooth
+
+/turf/open/floor/plating/asteroid/infected_ground/airless
+	baseturfs = /turf/open/floor/plating/asteroid/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
+/turf/open/floor/plating/asteroid/infected_ground/Initialize()
+	. = ..()
+	set_basalt_light(src)
+
+/turf/open/floor/plating/asteroid/infected_ground/proc/set_basalt_light(turf/open/floor/B)
+	switch(B.icon_state)
+		if("basalt1", "basalt2", "basalt3")
+			B.set_light(2, 0.6, LIGHT_COLOR_TUNGSTEN) //more light
+		if("basalt5", "basalt9")
+			B.set_light(1.4, 0.6, LIGHT_COLOR_TUNGSTEN) //barely anything!
+
+/turf/open/floor/plating/asteroid/infected_ground/lava_land_surface
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/acidpus/smooth/planet_surface
+
 ///////Surface. The surface is warm, but survivable without a suit. Internals are required. The floors break to chasms, which drop you into the underground.
 
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 	planetary_atmos = TRUE
-	baseturfs = /turf/open/lava/smooth/lava_land_surface
+	baseturfs = /turf/open/acidpus/smooth/planet_surface //CHANGED TO ACIDPUS BECAUSE I CAN NO LONGER BE FUCKED
 
 
 
@@ -171,13 +207,13 @@
 	has_data = TRUE
 
 /turf/open/floor/plating/asteroid/airless/cave/volcanic
-	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50, /obj/structure/spawner/lavaland/goliath = 3, \
-		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 40, /obj/structure/spawner/lavaland = 2, \
-		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 30, /obj/structure/spawner/lavaland/legion = 3, \
+	mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goliath/beast = 53, \
+		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher = 40, /obj/structure/spawner/lavaland = 2, \
+		/mob/living/simple_animal/hostile/asteroid/hivelord/legion = 33, \
 		SPAWN_MEGAFAUNA = 6, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10)
 
 	data_having_type = /turf/open/floor/plating/asteroid/airless/cave/volcanic/has_data
-	turf_type = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
+	turf_type = /turf/open/floor/plating/asteroid/wasteland/lava_land_surface
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 
 /turf/open/floor/plating/asteroid/airless/cave/volcanic/has_data //subtype for producing a tunnel with given data

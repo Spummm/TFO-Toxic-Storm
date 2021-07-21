@@ -62,31 +62,33 @@
 
 //Watcher
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher
-	name = "watcher"
-	desc = "A levitating, eye-like creature held aloft by winglike formations of sinew. A sharp spine of crystal protrudes from its body."
-	icon = 'icons/mob/lavaland/watcher.dmi'
-	icon_state = "watcher"
-	icon_living = "watcher"
-	icon_aggro = "watcher"
-	icon_dead = "watcher_dead"
-	pixel_x = -10
+	name = "floating abscess"
+	desc = "A levitating hunk of gangrenous flesh and bone. Pus drips from a large sac on its front, occasionally spewing a torrent of viserca."
+	icon = 'icons/mob/parasites/infestation_mobs.dmi'
+	icon_state = "floating_abscess"
+	icon_living = "floating_abscess"
+	icon_aggro = "floating_abscess"
+	icon_dead = "floating_abscess_dead"
+	//pixel_x = -10
 	throw_message = "bounces harmlessly off of"
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attack_verb_continuous = "impales"
 	attack_verb_simple = "impale"
 	a_intent = INTENT_HARM
-	speak_emote = list("telepathically cries")
+	speak_emote = list("screeches")
 	attack_sound = 'sound/weapons/bladeslice.ogg'
+	death_sound = 'sound/parasites/floatingabscess_death.ogg'
 	stat_attack = UNCONSCIOUS
 	movement_type = FLYING
 	robust_searching = 1
-	crusher_loot = /obj/item/crusher_trophy/watcher_wing
+	crusher_loot = list()
 	loot = list()
 	butcher_results = list(/obj/item/stack/ore/diamond = 2, /obj/item/stack/sheet/sinew = 2, /obj/item/stack/sheet/bone = 1)
 	field_of_vision_type = FOV_270_DEGREES //Obviously, it's one eyeball.
 	search_objects = 1
 	wanted_objects = list(/obj/item/pen/survival, /obj/item/stack/ore/diamond)
+	projectiletype = /obj/item/projectile/parasite_vomit
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/BiologicalLife(seconds, times_fired)
 	if(!(. = ..()))
@@ -110,16 +112,16 @@
 		distanceb = get_dist(loc,bait.loc)
 		if(distanceb <= 1 && bait)
 			qdel(bait)
-			visible_message("<span class='notice'>[src] examines [bait] closer, and telekinetically shatters the pen.</span>")
+			visible_message("<span class='notice'>[src] examines [bait] closer, and shatters the pen.</span>")
 
-/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random/Initialize()
+/*/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random/Initialize()
 	. = ..()
 	if(prob(1))
 		if(prob(75))
 			new /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/magmawing(loc)
 		else
 			new /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/icewing(loc)
-		return INITIALIZE_HINT_QDEL
+		return INITIALIZE_HINT_QDEL*/
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/magmawing
 	name = "magmawing watcher"
@@ -180,3 +182,5 @@
 
 /mob/living/simple_animal/hostile/asteroid/basilisk/watcher/tendril
 	fromtendril = TRUE
+
+

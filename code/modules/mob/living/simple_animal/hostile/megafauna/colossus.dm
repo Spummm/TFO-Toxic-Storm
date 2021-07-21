@@ -22,20 +22,20 @@ Difficulty: Very Hard
 */
 
 /mob/living/simple_animal/hostile/megafauna/colossus
-	name = "colossus"
-	desc = "A monstrous creature protected by heavy shielding."
+	name = "unidentified war machine"
+	desc = "A large, hulking automated warmech. Machines such as this are normally only found near the core worlds, but this one bares no Confederation insignia..."
 	threat = 40
 	health = 2500
 	maxHealth = 2500
 	attack_verb_continuous = "judges"
 	attack_verb_simple = "judge"
-	attack_sound = 'sound/magic/clockwork/ratvar_attack.ogg'
+	attack_sound = 'sound/weapons/deathmech_fire.ogg'
 	icon_state = "eva"
 	icon_living = "eva"
-	icon_dead = "dragon_dead"
+	icon_dead = "eva_dead"
 	friendly_verb_continuous = "stares down"
 	friendly_verb_simple = "stare down"
-	icon = 'icons/mob/lavaland/96x96megafauna.dmi'
+	icon = 'icons/mob/parasites/96x96parasites.dmi'
 	speak_emote = list("roars")
 	armour_penetration = 40
 	melee_damage_lower = 40
@@ -44,17 +44,18 @@ Difficulty: Very Hard
 	move_to_delay = 10
 	ranged = 1
 	pixel_x = -32
-	del_on_death = 1
+	movement_type = GROUND
+	del_on_death = 0
 	medal_type = BOSS_MEDAL_COLOSSUS
 	score_type = COLOSSUS_SCORE
-	crusher_loot = list(/obj/structure/closet/crate/necropolis/colossus/crusher)
-	loot = list(/obj/structure/closet/crate/necropolis/colossus)
-	butcher_results = list(/obj/item/stack/ore/diamond = 5, /obj/item/stack/sheet/sinew = 5, /obj/item/stack/sheet/animalhide/ashdrake = 10, /obj/item/stack/sheet/bone = 30)
-	deathmessage = "disintegrates, leaving a glowing core in its wake."
-	death_sound = 'sound/magic/demon_dies.ogg'
+	crusher_loot = list()
+	loot = list()
+	butcher_results = list(/obj/item/stack/ore/diamond = 10, /obj/item/stack/sheet/mineral/uranium = 20, /obj/item/stack/sheet/mineral/plasma = 30, /obj/item/stack/sheet/mineral/gold = 10, /obj/item/stack/sheet/mineral/plastitanium = 45)
+	deathmessage = "lets out a robotic screech as it grinds to a hault, before falling limp to the ground with a thud."
+	death_sound = 'sound/health/death_synth.ogg'
 
 /mob/living/simple_animal/hostile/megafauna/colossus/devour(mob/living/L)
-	visible_message("<span class='colossus'>[src] disintegrates [L]!</span>")
+	visible_message("<span class='colossus'>[src] focuses its cannons on [L], disintegrating them in a flash of light!!</span>")
 	L.dust()
 
 /mob/living/simple_animal/hostile/megafauna/colossus/OpenFire()
@@ -63,7 +64,7 @@ Difficulty: Very Hard
 
 	if(enrage(target))
 		if(move_to_delay == initial(move_to_delay))
-			visible_message("<span class='colossus'>\"<b>You can't dodge.</b>\"</span>")
+			visible_message("<span class='colossus'>\"<b>CEASE YOUR RESISTANCE.</b>\"</span>")
 		ranged_cooldown = world.time + 30
 		telegraph()
 		dir_shots(GLOB.alldirs)
@@ -78,7 +79,7 @@ Difficulty: Very Hard
 		if(health < maxHealth/3)
 			double_spiral()
 		else
-			visible_message("<span class='colossus'>\"<b>Judgement.</b>\"</span>")
+			visible_message("<span class='colossus'>\"<b>IDENTIFY YOURSELF.</b>\"</span>")
 			INVOKE_ASYNC(src, .proc/spiral_shoot, pick(TRUE, FALSE))
 
 	else if(prob(20))
@@ -98,8 +99,8 @@ Difficulty: Very Hard
 	internal = new/obj/item/gps/internal/colossus(src)
 
 /obj/effect/temp_visual/at_shield
-	name = "anti-toolbox field"
-	desc = "A shimmering forcefield protecting the colossus."
+	name = "energy shield"
+	desc = "A shimmering forcefield protecting the war machine."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "at_shield2"
 	layer = FLY_LAYER
@@ -139,7 +140,7 @@ Difficulty: Very Hard
 	dir_shots(GLOB.cardinals)
 
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/double_spiral()
-	visible_message("<span class='colossus'>\"<b>Die.</b>\"</span>")
+	visible_message("<span class='colossus'>\"<b>DIE.</b>\"</span>")
 
 	sleep(10)
 	INVOKE_ASYNC(src, .proc/spiral_shoot)
@@ -158,7 +159,7 @@ Difficulty: Very Hard
 		if(counter < 1)
 			counter = 16
 		shoot_projectile(start_turf, counter * 22.5)
-		playsound(get_turf(src), 'sound/magic/clockwork/invoke_general.ogg', 20, 1)
+		playsound(get_turf(src), 'sound/weapons/deathmech_fire.ogg', 20, 1)
 		sleep(1)
 
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/shoot_projectile(turf/marker, set_angle)
@@ -174,14 +175,14 @@ Difficulty: Very Hard
 
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/random_shots()
 	var/turf/U = get_turf(src)
-	playsound(U, 'sound/magic/clockwork/invoke_general.ogg', 300, 1, 5)
+	playsound(U, 'sound/weapons/deathmech_fire.ogg', 300, 1, 5)
 	for(var/T in RANGE_TURFS(12, U) - U)
 		if(prob(5))
 			shoot_projectile(T)
 
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/blast(set_angle)
 	var/turf/target_turf = get_turf(target)
-	playsound(src, 'sound/magic/clockwork/invoke_general.ogg', 200, 1, 2)
+	playsound(src, 'sound/weapons/deathmech_fire.ogg', 200, 1, 2)
 	newtonian_move(get_dir(target_turf, src))
 	var/angle_to_target = Get_Angle(src, target_turf)
 	if(isnum(set_angle))
@@ -193,7 +194,7 @@ Difficulty: Very Hard
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/dir_shots(list/dirs)
 	if(!islist(dirs))
 		dirs = GLOB.alldirs.Copy()
-	playsound(src, 'sound/magic/clockwork/invoke_general.ogg', 200, 1, 2)
+	playsound(src, 'sound/weapons/deathmech_fire.ogg', 200, 1, 2)
 	for(var/d in dirs)
 		var/turf/E = get_step(src, d)
 		shoot_projectile(E)
@@ -203,7 +204,7 @@ Difficulty: Very Hard
 		if(M.client)
 			flash_color(M.client, "#C80000", 1)
 			shake_camera(M, 4, 3)
-	playsound(src, 'sound/magic/clockwork/narsie_attack.ogg', 200, 1)
+	playsound(src, 'sound/weapons/deathmech_alert.ogg', 200, 1)
 
 
 
@@ -225,8 +226,8 @@ Difficulty: Very Hard
 
 /obj/item/gps/internal/colossus
 	icon_state = null
-	gpstag = "Angelic Signal"
-	desc = "Get in the fucking robot."
+	gpstag = "Robotic Signal"
+	desc = "DAISY, DAISY, GIVE ME YOUR ANSWER TRUE."
 	invisibility = 100
 
 

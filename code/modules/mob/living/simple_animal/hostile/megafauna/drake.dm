@@ -31,8 +31,8 @@ Difficulty: Medium
 */
 
 /mob/living/simple_animal/hostile/megafauna/dragon
-	name = "ash drake"
-	desc = "Guardians of the necropolis."
+	name = "decay drake"
+	desc = "A large dragon-like creature, one of the few creatures from the original biosphere to have adapated rather than be assimilated. It uses flammable gases from within to spit fire at prey."
 	threat = 30
 	health = 2500
 	maxHealth = 2500
@@ -40,7 +40,7 @@ Difficulty: Medium
 	attack_verb_continuous = "chomps"
 	attack_verb_simple = "chomp"
 	attack_sound = 'sound/magic/demon_attack1.ogg'
-	icon = 'icons/mob/lavaland/64x64megafauna.dmi'
+	icon = 'icons/mob/parasites/64x64parasites.dmi'
 	icon_state = "dragon"
 	icon_living = "dragon"
 	icon_dead = "dragon_dead"
@@ -54,8 +54,8 @@ Difficulty: Medium
 	move_to_delay = 5
 	ranged = 1
 	pixel_x = -16
-	crusher_loot = list(/obj/structure/closet/crate/necropolis/dragon/crusher)
-	loot = list(/obj/structure/closet/crate/necropolis/dragon)
+	crusher_loot = list()
+	loot = list()
 	butcher_results = list(/obj/item/stack/ore/diamond = 5, /obj/item/stack/sheet/sinew = 5, /obj/item/stack/sheet/bone = 30)
 	guaranteed_butcher_results = list(/obj/item/stack/sheet/animalhide/ashdrake = 10)
 	var/swooping = NONE
@@ -381,7 +381,7 @@ Difficulty: Medium
 		animate(src, pixel_x = -16, pixel_z = 0, time = 5)
 
 /mob/living/simple_animal/hostile/megafauna/dragon/lesser
-	name = "lesser ash drake"
+	name = "lesser decay drake"
 	maxHealth = 200
 	health = 200
 	faction = list("neutral")
