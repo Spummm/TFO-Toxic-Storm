@@ -55,10 +55,10 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/security/officer/spacepol
-	name = "police uniform"
-	desc = "Space not controlled by megacorporations, planets, or pirates is under the jurisdiction of Spacepol."
-	icon_state = "spacepol"
-	item_state = "spacepol"
+	name = "peacekeeper uniform"
+	desc = "A standard uniform utilized by Confederation Peacekeepers. Lightly armored."
+	icon_state = "syndicate_combat"
+	item_state = "syndicate_combat"
 	can_adjust = FALSE
 
 /*
@@ -201,8 +201,8 @@
  */
 
 /obj/item/clothing/under/rank/security/spacepol
-	name = "police uniform"
-	desc = "Space not controlled by megacorporations, planets, or pirates is under the jurisdiction of Spacepol."
-	icon_state = "spacepol"
-	item_state = "spacepol"
+	name = "peacekeeper uniform"
+	desc = "A standard uniform utilized by Confederation Peacekeepers. Lightly armored."
+	icon_state = "syndicate_combat"
+	item_state = "syndicate_combat"
 	can_adjust = FALSE

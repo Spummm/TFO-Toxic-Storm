@@ -1,6 +1,5 @@
 /datum/traitor_class/human/subterfuge
-	name = "MI13 Operative"
-	employer = "MI13"
+	name = "Subversion Specialist"
 	weight = 20
 	chaos = -5
 

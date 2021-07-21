@@ -71,7 +71,7 @@
 	surplus = 0
 	include_modes = list(/datum/game_mode/nuclear/clown_ops)
 
-/* /datum/uplink_item/explosives/detomatix // Skyrat Edit - This item doesn't mesh well with our antagonist policy. 
+/* /datum/uplink_item/explosives/detomatix // This was originally a skyrat change but I have to agree with it, this isn't applicable to roleplay OR fun combat at all.
 	name = "Detomatix PDA Cartridge"
 	desc = "When inserted into a personal digital assistant, this cartridge gives you four opportunities to \
 			detonate PDAs of crewmembers who have their message feature enabled. \

@@ -81,7 +81,7 @@
 	if(visualsOnly)
 		return
 	var/obj/item/card/id/W = H.wear_id
-	W.assignment = "Police Officer"
+	W.assignment = "Confederation Peacekeeper"
 	W.registered_name = H.real_name
 	W.update_label()
 

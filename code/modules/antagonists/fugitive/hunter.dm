@@ -28,16 +28,16 @@
 /datum/antagonist/fugitive_hunter/greet()
 	switch(backstory)
 		if("space cop")
-			to_chat(owner, "<span class='boldannounce'>Justice has arrived. I am a member of the Spacepol!</span>")
-			to_chat(owner, "<B>The criminals should be on the station, we have special huds implanted to recognize them.</B>")
-			to_chat(owner, "<B>As we have lost pretty much all power over these damned lawless megacorporations, it's a mystery if their security will cooperate with us.</B>")
-		if("russian")
+			to_chat(owner, "<span class='boldannounce'>Justice has arrived</span>")
+			to_chat(owner, "<B>The Confederation wants some escapees captured, alive and without harm. We have special huds to ensure their capture, but God only knows if we can follow through on that \"no harm\" clause.</B>")
+			to_chat(owner, "<B>As the station is Confederation-aligned, we should expect them to help us. Of course, out here on the rim, you can never be too sure.</B>")
+		/*if("russian")
 			to_chat(src, "<span class='danger'>Ay blyat. I am a space-russian smuggler! We were mid-flight when our cargo was beamed off our ship!</span>")
 			to_chat(src, "<span class='danger'>We were hailed by a man in a green uniform, promising the safe return of our goods in exchange for a favor:</span>")
 			to_chat(src, "<span class='danger'>There is a local station housing fugitives that the man is after, he wants them returned; dead or alive.</span>")
-			to_chat(src, "<span class='danger'>We will not be able to make ends meet without our cargo, so we must do as he says and capture them.</span>")
+			to_chat(src, "<span class='danger'>We will not be able to make ends meet without our cargo, so we must do as he says and capture them.</span>")*/
 
-	to_chat(owner, "<span class='boldannounce'>You are not an antagonist in that you may kill whomever you please, but you can do anything to ensure the capture of the fugitives, even if that means going through the station.</span>")
+	to_chat(owner, "<span class='boldannounce'>You are not an antagonist in that you may kill whomever you please, but you can do anything to ensure the capture of the fugitives, even if that means going through the station. Remember, ROLEPLAY FIRST!</span>")
 	owner.announce_objectives()
 
 /datum/antagonist/fugitive_hunter/create_team(datum/team/fugitive_hunters/new_team)
@@ -135,19 +135,19 @@
 	switch(get_result())
 		if(FUGITIVE_RESULT_BADASS_HUNTER)//use defines
 			result += "<span class='greentext big'>Badass [capitalize(backstory)] Victory!</span>"
-			result += "<B>The [backstory]s managed to capture every fugitive, alive!</B>"
+			result += "<B>The Confederation managed to capture every fugitive, alive!</B>"
 		if(FUGITIVE_RESULT_POSTMORTEM_HUNTER)
 			result += "<span class='greentext big'>Postmortem [capitalize(backstory)] Victory!</span>"
-			result += "<B>The [backstory]s managed to capture every fugitive, but all of them died! Spooky!</B>"
+			result += "<B>The Confederation managed to capture every fugitive, but all of them died! Spooky!</B>"
 		if(FUGITIVE_RESULT_MAJOR_HUNTER)
 			result += "<span class='greentext big'>Major [capitalize(backstory)] Victory</span>"
-			result += "<B>The [backstory]s managed to capture every fugitive, dead or alive.</B>"
+			result += "<B>The Confederation managed to capture every fugitive, dead or alive.</B>"
 		if(FUGITIVE_RESULT_HUNTER_VICTORY)
 			result += "<span class='greentext big'>[capitalize(backstory)] Victory</span>"
-			result += "<B>The [backstory]s managed to capture a fugitive, dead or alive.</B>"
+			result += "<B>The Confederation managed to capture a fugitive, dead or alive.</B>"
 		if(FUGITIVE_RESULT_MINOR_HUNTER)
 			result += "<span class='greentext big'>Minor [capitalize(backstory)] Victory</span>"
-			result += "<B>All the [backstory]s died, but managed to capture a fugitive, dead or alive.</B>"
+			result += "<B>All the Confederation Hunters died, but managed to capture a fugitive, dead or alive.</B>"
 		if(FUGITIVE_RESULT_STALEMATE)
 			result += "<span class='neutraltext big'>Bloody Stalemate</span>"
 			result += "<B>Everyone died, and no fugitives were recovered!</B>"
@@ -156,13 +156,13 @@
 			result += "<B>All the fugitives died, but none were recovered!</B>"
 		if(FUGITIVE_RESULT_FUGITIVE_VICTORY)
 			result += "<span class='redtext big'>Fugitive Victory</span>"
-			result += "<B>A fugitive survived, and no bodies were recovered by the [backstory]s.</B>"
+			result += "<B>A fugitive survived, and no bodies were recovered by the Confederation.</B>"
 		if(FUGITIVE_RESULT_MAJOR_FUGITIVE)
 			result += "<span class='redtext big'>Major Fugitive Victory</span>"
 			result += "<B>All of the fugitives survived and avoided capture!</B>"
 		else //get_result returned null- either bugged or no fugitives showed
 			result += "<span class='neutraltext big'>Prank Call!</span>"
-			result += "<B>[capitalize(backstory)]s were called, yet there were no fugitives...?</B>"
+			result += "<B>The Confederation was called, yet there were no fugitives...?</B>"
 
 	result += "</div>"
 

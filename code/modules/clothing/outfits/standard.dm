@@ -80,22 +80,22 @@
 /datum/outfit/pirate
 	name = "Space Pirate"
 
-	uniform = /obj/item/clothing/under/costume/pirate
+	uniform = /obj/item/clothing/under/costume/sailor
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	suit = /obj/item/clothing/suit/pirate
+	suit = /obj/item/clothing/suit/armor/vest
 	head = /obj/item/clothing/head/bandana
 	glasses = /obj/item/clothing/glasses/eyepatch
 
 /datum/outfit/pirate/space
-	suit = /obj/item/clothing/suit/space/pirate
-	head = /obj/item/clothing/head/helmet/space/pirate/bandana
 	mask = /obj/item/clothing/mask/breath
 	suit_store = /obj/item/tank/internals/oxygen
 	ears = /obj/item/radio/headset/syndicate
 	id = /obj/item/card/id
 
 /datum/outfit/pirate/space/captain
-	head = /obj/item/clothing/head/helmet/space/pirate
+	head = /obj/item/clothing/head/HoS/pirate
+	suit = /obj/item/clothing/suit/armor/hos
+	uniform = /obj/item/clothing/under/syndicate
 
 /datum/outfit/pirate/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE, client/preference_source)
 	H.faction |= "pirate"

@@ -165,6 +165,10 @@
 	name = "syndicate cap"
 	desc = "A black cap fit for a high ranking syndicate officer."
 
+/obj/item/clothing/head/HoS/pirate
+	name = "commanding cap"
+	desc = "A hat suitable to command with. Thus the name."
+
 /obj/item/clothing/head/HoS/beret
 	name = "head of security beret"
 	desc = "A robust beret for the Head of Security, for looking stylish while not sacrificing protection."

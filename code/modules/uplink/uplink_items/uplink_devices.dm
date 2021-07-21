@@ -20,11 +20,11 @@
 	item = /obj/item/emagrecharge
 	cost = 2
 
-/datum/uplink_item/device_tools/bluespacerecharge
+/*/datum/uplink_item/device_tools/bluespacerecharge
 	name = "Bluespace Crystal Recharging Device"
 	desc = "A small device intended for recharging Wall Walking boots. Using it will add six charges to them. Use ten bluespace crystals on this recharger to add three more charges to it. "
 	item = /obj/item/bluespacerecharge
-	cost = 2
+	cost = 2*/
 
 /datum/uplink_item/device_tools/phantomthief
 	name = "Syndicate Mask"
@@ -68,14 +68,14 @@
 	cost = 2
 	include_modes = list(/datum/game_mode/nuclear, /datum/game_mode/nuclear/clown_ops)
 
-/datum/uplink_item/device_tools/compressionkit
+/*/datum/uplink_item/device_tools/compressionkit
 	name = "Bluespace Compression Kit"
 	desc = "A modified version of a BSRPED that can be used to reduce the size of most items while retaining their original functions! \
 			Does not work on storage items. \
 			Recharge using bluespace crystals. \
 			Comes with 5 charges."
 	item = /obj/item/compressionkit
-	cost = 5
+	cost = 5*/
 
 /datum/uplink_item/device_tools/briefcase_launchpad
 	name = "Briefcase Launchpad"
@@ -177,13 +177,13 @@
 	item = /obj/item/sbeacondrop
 	cost = 14
 
-/*/datum/uplink_item/device_tools/powersink
+/datum/uplink_item/device_tools/powersink
 	name = "Power Sink"
 	desc = "When screwed to wiring attached to a power grid and activated, this large device lights up and places excessive \
 			load on the grid, causing a station-wide blackout. The sink is large and cannot be stored in most \
 			traditional bags and boxes. Caution: Will explode if the powernet contains sufficient amounts of energy."
 	item = /obj/item/powersink
-	cost = 6 */
+	cost = 6
 
 /datum/uplink_item/device_tools/rad_laser
 	name = "Radioactive Microlaser"
@@ -243,14 +243,14 @@
 	surplus = 75
 	restricted = TRUE
 
-/datum/uplink_item/device_tools/syndietome
+/*/datum/uplink_item/device_tools/syndietome
 	name = "Syndicate Tome"
 	desc = "Using rare artifacts acquired at great cost, the Syndicate has reverse engineered \
 			the seemingly magical books of a certain cult. Though lacking the esoteric abilities \
 			of the originals, these inferior copies are still quite useful, being able to provide \
 			both weal and woe on the battlefield, even if they do occasionally bite off a finger."
 	item = /obj/item/storage/book/bible/syndicate
-	cost = 9
+	cost = 9*/
 
 /datum/uplink_item/device_tools/thermal
 	name = "Thermal Imaging Glasses"
@@ -261,14 +261,14 @@
 	item = /obj/item/clothing/glasses/thermal/syndi
 	cost = 4
 
-/datum/uplink_item/device_tools/potion
+/*/datum/uplink_item/device_tools/potion
 	name = "Syndicate Sentience Potion"
 	item = /obj/item/slimepotion/slime/sentience/nuclear
 	desc = "A potion recovered at great risk by undercover Syndicate operatives and then subsequently modified with Syndicate technology. \
 			Using it will make any animal sentient, and bound to serve you, as well as implanting an internal radio for communication and an internal ID card for opening doors."
 	cost = 2
 	include_modes = list(/datum/game_mode/nuclear, /datum/game_mode/nuclear/clown_ops)
-	restricted = TRUE
+	restricted = TRUE*/
 
 /* for now
 /datum/uplink_item/device_tools/suspiciousphone

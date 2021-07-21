@@ -237,7 +237,7 @@
 
 /obj/item/melee/transforming/energy/sword/pirate
 	name = "energy cutlass"
-	desc = "Arrrr matey."
+	desc = "A concentrated beam sword, fashioned in the shape of a cutlass using gas containment. Popular among Pirates and collectors for obvious reasons."
 	icon_state = "cutlass0"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
