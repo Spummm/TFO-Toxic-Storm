@@ -81,7 +81,7 @@
 	outfit = /datum/outfit/ert/commander/alert/delta
 
 /datum/antagonist/ert/deathsquad
-	name = "Deathsquad Trooper"
+	name = "Confederation Heavy Commando"
 	outfit = /datum/outfit/death_commando
 	role = "Trooper"
 
@@ -110,7 +110,7 @@
 	owner.isholy = TRUE
 
 /datum/antagonist/ert/deathsquad/leader
-	name = "Deathsquad Officer"
+	name = "Confederation High Commander"
 	outfit = /datum/outfit/death_commando
 	role = "Officer"
 
@@ -134,7 +134,7 @@
 
 	to_chat(owner, "<B><font size=3 color=red>You are the [name].</font></B>")
 
-	var/missiondesc = "Your squad is being sent on a mission to [station_name()] by Nanotrasen's Security Division."
+	var/missiondesc = "Your squad is being sent on a mission to [station_name()] by the Confederation's Security Council."
 	if(leader) //If Squad Leader
 		missiondesc += " Lead your squad to ensure the completion of the mission. Board the shuttle when your team is ready."
 	else
@@ -151,7 +151,7 @@
 
 	to_chat(owner, "<B><font size=3 color=red>You are the [name].</font></B>")
 
-	var/missiondesc = "Your squad is being sent on a mission to [station_name()] by Nanotrasen's Security Division."
+	var/missiondesc = "Your squad is being sent on a mission to [station_name()] by the Confederation's Security Council."
 	if(leader) //If Squad Leader
 		missiondesc += " Lead your squad to ensure the completion of the mission. Board the shuttle when your team is ready."
 	else

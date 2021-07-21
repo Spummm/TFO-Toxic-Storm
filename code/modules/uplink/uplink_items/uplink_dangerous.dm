@@ -162,7 +162,7 @@
 	surplus = 30
 	include_modes = list(/datum/game_mode/nuclear)
 
-/datum/uplink_item/dangerous/rapid
+/*/datum/uplink_item/dangerous/rapid
 	name = "Bands of the North Star"
 	desc = "These armbands let the user punch people very fast and with the lethality of a legendary martial artist. \
 			Does not improve weapon attack speed or the meaty fists of a hulk, but you will be unmatched in martial power. \
@@ -183,7 +183,7 @@
 	exclude_modes = list(/datum/game_mode/nuclear, /datum/game_mode/nuclear/clown_ops)
 	player_minimum = 25
 	restricted = TRUE
-	refund_path = /obj/item/guardiancreator/tech/choose/traitor
+	refund_path = /obj/item/guardiancreator/tech/choose/traitor*/
 
 /datum/uplink_item/dangerous/machinegun
 	name = "L6 Squad Automatic Weapon"

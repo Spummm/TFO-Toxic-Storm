@@ -219,7 +219,7 @@
 	name = "malfunctioning cryostasis sleeper"
 	desc = "A humming sleeper with a silhouetted occupant inside. Its stasis function is broken and it's likely being used as a bed."
 	mob_name = "a stranded hermit"
-	job_description = "Lavaland Hermit"
+	job_description = "Stranded Hermit"
 	icon = 'icons/obj/lavaland/spawners.dmi'
 	icon_state = "cryostasis_sleeper"
 	roundstart = FALSE
@@ -228,7 +228,7 @@
 	mob_species = /datum/species/human
 	short_desc = "You've been stranded in this godless prison of a planet for longer than you can remember."
 	flavour_text = "Each day you barely scrape by, and between the terrible conditions of your makeshift shelter, \
-	the hostile creatures, and the ash drakes swooping down from the cloudless skies, all you can wish for is the feel of soft grass between your toes and \
+	the hostile creatures, and the decay drakes swooping down from the cloudless skies, all you can wish for is the feel of soft grass between your toes and \
 	the fresh air of Earth. These thoughts are dispelled by yet another recollection of how you got here... "
 	assignedrole = "Hermit"
 
@@ -244,22 +244,23 @@
 			outfit.shoes = /obj/item/clothing/shoes/sneakers/black
 			outfit.back = /obj/item/storage/backpack
 		if(2)
-			flavour_text += "you're an exile from the Tiger Cooperative. Their technological fanaticism drove you to question the power and beliefs of the Exolitics, and they saw you as a \
-			heretic and subjected you to hours of horrible torture. You were hours away from execution when a high-ranking friend of yours in the Cooperative managed to secure you a pod, \
+			flavour_text += "you're an exile from the League for the Liberation of Extraterrestrial Life. Their violent fanaticism drove you to question the beliefs of the group, and they saw you as a \
+			traitor. They subjected you to hours of horrible torture - but while ou were hours away from execution, a high-ranking friend of yours in the League managed to secure you a pod, \
 			scrambled its destination's coordinates, and launched it. You awoke from stasis when you landed and have been surviving - barely - ever since."
 			outfit.uniform = /obj/item/clothing/under/rank/prisoner
 			outfit.shoes = /obj/item/clothing/shoes/sneakers/orange
 			outfit.back = /obj/item/storage/backpack
 		if(3)
 			flavour_text += "you were a doctor on one of Nanotrasen's space stations, but you left behind that damn corporation's tyranny and everything it stood for. From a metaphorical hell \
-			to a literal one, you find yourself nonetheless missing the recycled air and warm floors of what you left behind... but you'd still rather be here than there."
+			to a literal one, you find yourself nonetheless missing the recycled air and warm floors of what you left behind... but you'd still rather be here than there. If you're lucky, maybe \
+			the Confederation might find you..."
 			outfit.uniform = /obj/item/clothing/under/rank/medical/doctor
 			outfit.suit = /obj/item/clothing/suit/toggle/labcoat
 			outfit.back = /obj/item/storage/backpack/medic
 			outfit.shoes = /obj/item/clothing/shoes/sneakers/black
 		if(4)
 			flavour_text += "you were always joked about by your friends for \"not playing with a full deck\", as they so <i>kindly</i> put it. It seems that they were right when you, on a tour \
-			at one of Nanotrasen's state-of-the-art research facilities, were in one of the escape pods alone and saw the red button. It was big and shiny, and it caught your eye. You pressed \
+			at one of Nanotrasen's state-of-the-art orbital production facilities, were in one of the escape pods alone and saw the red button. It was big and shiny, and it caught your eye. You pressed \
 			it, and after a terrifying and fast ride for days, you landed here. You've had time to wisen up since then, and you think that your old friends wouldn't be laughing now."
 			outfit.uniform = /obj/item/clothing/under/color/grey/glorf
 			outfit.shoes = /obj/item/clothing/shoes/sneakers/black
@@ -276,13 +277,13 @@
 /obj/effect/mob_spawn/human/doctor/alive/lavaland
 	name = "broken rejuvenation pod"
 	desc = "A small sleeper typically used to instantly restore minor wounds. This one seems broken, and its occupant is comatose."
-	job_description = "Lavaland Veterinarian"
-	mob_name = "a translocated vet"
-	short_desc = "You are a animal doctor who just woke up in lavaland"
-	flavour_text = "What...? Where are you? Where are the others? This is still the animal hospital - you should know, you've been an intern here for weeks - but \
-	you see them right now. So where is \
-	everyone? Where did they go? What happened to the hospital? And is that <i>smoke</i> you smell? You need to find someone else. Maybe they c	everyone's gone. One of the cats scratched you just a few minutes ago. That's why you were in the pod - to heal the scratch. The scabs are still fresh; an tell you what happened."
-	assignedrole = "Translocated Vet"
+	job_description = "Wasteland Veterinarian"
+	mob_name = "a lost vet"
+	short_desc = "You are a animal doctor who just woke up in the parasite-infested Wastes."
+	flavour_text = "It was all too much for you. The tides of death, decay, and corruption swam across the planet like a sea of filth, \
+	and in desperation you hid away. Away in one of these old pods, set to a random sleep cycle, hoping to either die or wake up to rescue. \
+	Unfortunately, you seem to have been granted neither."
+	assignedrole = "Wasteland Vet"
 
 /obj/effect/mob_spawn/human/doctor/alive/lavaland/Destroy()
 	var/obj/structure/fluff/empty_sleeper/S = new(drop_location())
@@ -300,7 +301,7 @@
 	outfit = /datum/outfit/lavalandprisoner
 	roundstart = FALSE
 	death = FALSE
-	short_desc = "You're a prisoner, sentenced to hard work in one of Nanotrasen's labor camps, but it seems as \
+	short_desc = "You're a prisoner, sentenced to an extended stay at a Reintegration facility, but it seems as \
 	though fate has other plans for you."
 	flavour_text = "Good. It seems as though your ship crashed. You remember that you were convicted of "
 	assignedrole = "Escaped Prisoner"
@@ -312,7 +313,7 @@
 /obj/effect/mob_spawn/human/prisoner_transport/Initialize(mapload)
 	. = ..()
 	var/list/crimes = list("murder", "larceny", "embezzlement", "unionization", "dereliction of duty", "kidnapping", "gross incompetence", "grand theft", "collaboration with the Syndicate", \
-	"worship of a forbidden deity", "interspecies relations", "mutiny")
+	"unlawful mutiny")
 	flavour_text += "[pick(crimes)]. but regardless of that, it seems like your crime doesn't matter now. You don't know where you are, but you know that it's out to kill you, and you're not going \
 	to lose this opportunity. Find a way to get out of this mess and back to where you rightfully belong - your [pick("house", "apartment", "spaceship", "station")]."
 
@@ -461,7 +462,7 @@
 
 /obj/effect/mob_spawn/human/syndicate/battlecruiser
 	name = "Syndicate Battlecruiser Ship Operative"
-	short_desc = "You are a crewmember aboard the syndicate flagship: the SBC Starfury."
+	short_desc = "You are a crewmember aboard a syndicate flagship: the SBC Starfury."
 	flavour_text = "Your job is to follow your captain's orders, maintain the ship, and keep the engine running. If you are not familiar with how the supermatter engine functions: do not attempt to start it."
 	important_info = "The armory is not a candy store, and your role is not to assault the station directly, leave that work to the assault operatives."
 	outfit = /datum/outfit/syndicate_empty/SBC
@@ -474,7 +475,7 @@
 
 /obj/effect/mob_spawn/human/syndicate/battlecruiser/assault
 	short_desc = "You are an assault operative aboard the syndicate flagship: the SBC Starfury."
-	flavour_text = "Your job is to follow your captain's orders, keep intruders out of the ship, and assault Space Station 13. There is an armory, multiple assault ships, and beam cannons to attack the station with."
+	flavour_text = "Your job is to follow your captain's orders, keep intruders out of the ship, and assault the Confederation outpost nearby. There is an armory, multiple assault ships, and beam cannons to attack the station with."
 	important_info = "Work as a team with your fellow operatives and work out a plan of attack. If you are overwhelmed, escape back to your ship!"
 	outfit = /datum/outfit/syndicate_empty/SBC/assault
 
@@ -492,7 +493,7 @@
 /obj/effect/mob_spawn/human/syndicate/battlecruiser/captain
 	name = "Syndicate Battlecruiser Captain"
 	short_desc = "You are the captain aboard the syndicate flagship: the SBC Starfury."
-	flavour_text = "Your job is to oversee your crew, defend the ship, and destroy Space Station 13. The ship has an armory, multiple ships, beam cannons, and multiple crewmembers to accomplish this goal."
+	flavour_text = "Your job is to oversee your crew, defend the ship, and destroy the Confederation outpost nearby. The ship has an armory, multiple ships, beam cannons, and multiple crewmembers to accomplish this goal."
 	important_info = "As the captain, this whole operation falls on your shoulders. You do not need to nuke the station, causing sufficient damage and preventing your ship from being destroyed will be enough."
 	outfit = /datum/outfit/syndicate_empty/SBC/assault/captain
 	id_access_list = list(150,151)
@@ -597,7 +598,7 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_name = "a space pirate"
-	mob_species = /datum/species/skeleton/space
+	mob_species = /datum/species/human
 	outfit = /datum/outfit/pirate/space
 	roundstart = FALSE
 	death = FALSE

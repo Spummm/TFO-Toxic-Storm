@@ -1951,13 +1951,11 @@
 //Misc reagents
 
 /datum/reagent/romerol
-	name = "Romerol"
+	name = "Claxyoadine"
 	// the REAL zombie powder
-	description = "Romerol is a highly experimental bioterror agent \
-		which causes dormant nodules to be etched into the grey matter of \
-		the subject. These nodules only become active upon death of the \
-		host, upon which, the secondary structures activate and take control \
-		of the host body."
+	description = "A chemical compound found frequently in creatures infested by the \
+	Omniparasite, Claxyoadine is crucial in the rapid incubation and metamorphasis of \
+	parasite entities, and usually holds any number of larvae eggs."
 	color = "#123524" // RGB (18, 53, 36)
 	metabolization_rate = INFINITY
 	can_synth = FALSE

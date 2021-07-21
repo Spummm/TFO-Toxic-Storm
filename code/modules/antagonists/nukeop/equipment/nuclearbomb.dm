@@ -63,7 +63,7 @@
 
 /obj/machinery/nuclearbomb/selfdestruct
 	name = "station self-destruct terminal"
-	desc = "For when it all gets too much to bear. Do not taunt."
+	desc = "A small fission explosive, with a panel at the front to control detonation. These are only used under extreme circumstances."
 	icon = 'icons/obj/machines/nuke_terminal.dmi'
 	icon_state = "nuclearbomb_base"
 	anchored = TRUE //stops it being moved
@@ -506,8 +506,8 @@
 		return CINEMATIC_SELFDESTRUCT_MISS
 
 /obj/machinery/nuclearbomb/beer
-	name = "Nanotrasen-brand nuclear fission explosive"
-	desc = "One of the more successful achievements of the Nanotrasen Corporate Warfare Division, their nuclear fission explosives are renowned for being cheap to produce and devastatingly effective. Signs explain that though this particular device has been decommissioned, every Nanotrasen station is equipped with an equivalent one, just in case. All Captains carefully guard the disk needed to detonate them - at least, the sign says they do. There seems to be a tap on the back."
+	name = "old nuclear fission explosive"
+	desc = "A very, very old bomb from the days of the Desperation Struggles. This one has been refurbished and turned into a beer keg."
 	proper_bomb = FALSE
 	var/obj/structure/reagent_dispensers/beerkeg/keg
 
@@ -610,7 +610,7 @@ This is here to make the tiles around the station mininuke change when it's arme
 
 /obj/item/disk/nuclear
 	name = "nuclear authentication disk"
-	desc = "Better keep this safe."
+	desc = "A standard authentication disk for a Confederation self-destruction terminal. Keep it safe."
 	icon_state = "nucleardisk"
 	persistence_replacement = /obj/item/disk/nuclear/fake
 	max_integrity = 250
@@ -700,5 +700,5 @@ This is here to make the tiles around the station mininuke change when it's arme
 	fake = TRUE
 
 /obj/item/disk/nuclear/fake/obvious
-	name = "cheap plastic imitation of the nuclear authentication disk"
-	desc = "How anyone could mistake this for the real thing is beyond you."
+	name = "cheap plastic disk"
+	desc = "A shoddy recreation of a Confederation Authentication Disk, with some LEDs on the front. How this could fool anyone is beyond you."

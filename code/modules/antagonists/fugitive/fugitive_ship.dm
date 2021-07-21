@@ -1,8 +1,8 @@
 //works similar to the experiment machine (experiment.dm) except it just holds more and more prisoners
 
 /obj/machinery/fugitive_capture
-	name = "bluespace capture machine"
-	desc = "Much, MUCH bigger on the inside to transport prisoners safely."
+	name = "capture device"
+	desc = "A collection of cages and restraints which are used only for the most violent or malcompliant of criminals, when all other options have been exhausted."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "bluespace-prison"
 	density = TRUE
@@ -29,7 +29,7 @@
 /obj/machinery/fugitive_capture/proc/add_prisoner(mob/living/carbon/human/fugitive, datum/antagonist/fugitive/antag)
 	fugitive.forceMove(src)
 	antag.is_captured = TRUE
-	to_chat(fugitive, "<span class='userdanger'>You are thrown into a vast void of bluespace, and as you fall further into oblivion the comparatively small entrance to reality gets smaller and smaller until you cannot see it anymore. You have failed to avoid capture.</span>")
+	to_chat(fugitive, "<span class='userdanger'>As the machine wirrs and clacks, you are bound in dozens of restraints and sent away into a vast underhull chamber. You have failed to avoid capture.</span>")
 	fugitive.ghostize(TRUE) //so they cannot suicide, round end stuff.
 
 /obj/machinery/computer/shuttle/hunter

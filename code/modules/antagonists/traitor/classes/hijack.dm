@@ -1,15 +1,13 @@
 /datum/traitor_class/human/hijack
-	name = "Gorlex Marauder"
-	employer = "The Gorlex Marauders"
+	name = "Marauder"
 	weight = 3
 	chaos = 5
 	threat = 3
 	min_players = 25
-	uplink_filters = list(/datum/uplink_item/stealthy_weapons/romerol_kit)
 
 /datum/traitor_class/human/hijack/forge_objectives(datum/antagonist/traitor/T)
 	var/datum/objective/hijack/O = new
-	O.explanation_text = "The Gorlex Marauders are letting you do what you want, with one condition: the shuttle must be hijacked by hacking its navigational protocols through the control console (alt click emergency shuttle console)."
+	O.explanation_text = "The Syndicate has elected to let you do what you want, with one condition: the shuttle must be hijacked by hacking its navigational protocols through the control console (alt click emergency shuttle console)."
 	O.owner = T.owner
 	T.add_objective(O)
 	return

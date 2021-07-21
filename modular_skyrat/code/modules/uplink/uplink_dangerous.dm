@@ -1,4 +1,4 @@
-/datum/uplink_item/dangerous/ebonyblade
+/*/datum/uplink_item/dangerous/ebonyblade
 	name = "Ebony Blade"
 	desc = "An artifact that fits the literal description of a traitor, as it gets more powerful the more you kill your own."
 	item = /obj/item/ebonyblade
@@ -17,7 +17,7 @@
 	desc = "A dagger, capable of using your enemies' blood to heal your own ailments."
 	item = /obj/item/kitchen/knife/combat/woe
 	cost = 12
-	exclude_modes = list(/datum/game_mode/nuclear/clown_ops)
+	exclude_modes = list(/datum/game_mode/nuclear/clown_ops)*/
 
 /datum/uplink_item/dangerous/energybalisong
 	name = "Energy Balisong"
@@ -50,7 +50,7 @@
 	cost = 14
 	exclude_modes = list(/datum/game_mode/nuclear/clown_ops)
 
-/datum/uplink_item/dangerous/morphcube
+/*/datum/uplink_item/dangerous/morphcube
 	name = "Morph Cube"
 	desc = "Gives you the ability to shapeshift into the currrent scanned animal on the cube."
 	item = /obj/item/morphcube
@@ -66,4 +66,4 @@
 	 		The illegal modifications bring this weapon up to par with the classic energy sword, and also gives it the energy sword's distinctive sounds."
 	item = /obj/item/melee/transforming/energy/sword/cx/traitor
 	cost = 8
-	exclude_modes = list(/datum/game_mode/nuclear/clown_ops)
+	exclude_modes = list(/datum/game_mode/nuclear/clown_ops)*/

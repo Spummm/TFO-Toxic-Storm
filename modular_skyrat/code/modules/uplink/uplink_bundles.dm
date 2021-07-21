@@ -1,3 +1,4 @@
+/*
 //armstrong CBT
 /datum/uplink_item/dangerous/armstrong
 	name = "Armstrong Style Kit"
@@ -196,4 +197,6 @@
 
 /obj/item/clothing/head/assu_helmet/realdeal
 	desc = "Ancient, yet functional helmet. It has \"D.A.B.\" written on the front. Helps quite a bit against batons to the head."
-	armor = list("melee" = 60, "bullet" = 15, "laser" = 15, "energy" = 30, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 100)
+	armor = list("melee" = 60, "bullet" = 15, "laser" = 15, "energy" = 30, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 90, "acid" = 100)*/
+
+//This whole file is an affront to God.

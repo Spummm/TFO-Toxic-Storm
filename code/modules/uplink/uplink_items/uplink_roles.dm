@@ -31,13 +31,13 @@
 	cost = 14							//High cost because of the potential for extreme damage in the hands of a skilled gas masked scientist.
 	restricted_roles = list("Research Director", "Scientist")
 
-/datum/uplink_item/role_restricted/alientech
+/*/datum/uplink_item/role_restricted/alientech
 	name = "Alien Research Disk"
 	desc = "A technology disk holding a terabyte of highly confidential abductor technology. \
 			Simply insert into research console of choice and import the files from the disk. Because of its foreign nature, it may require multiple uploads to work properly."
 	item = /obj/item/disk/tech_disk/abductor
 	cost = 12
-	restricted_roles = list("Research Director", "Scientist", "Roboticist")
+	restricted_roles = list("Research Director", "Scientist", "Roboticist")*/
 
 /datum/uplink_item/device_tools/brainwash_disk
 	name = "Brainwashing Surgery Program"
@@ -72,7 +72,7 @@
 	restricted_roles = list("Clown")
 */
 
-/datum/uplink_item/role_restricted/haunted_magic_eightball
+/*/datum/uplink_item/role_restricted/haunted_magic_eightball
 	name = "Haunted Magic Eightball"
 	desc = "Most magic eightballs are toys with dice inside. Although identical in appearance to the harmless toys, this occult device reaches into the spirit world to find its answers. \
 			Be warned, that spirits are often capricious or just little assholes. To use, simply speak your question aloud, then begin shaking."
@@ -108,7 +108,7 @@
 	cost = 20
 	player_minimum = 20
 	refundable = TRUE
-	restricted_roles = list("Chaplain")
+	restricted_roles = list("Chaplain")*/
 
 /datum/uplink_item/role_restricted/explosive_hot_potato
 	name = "Exploding Hot Potato"
@@ -166,10 +166,10 @@
 	limited_stock = 2 //you can't use more than two!
 	restricted_roles = list("Shaft Miner")
 
-/datum/uplink_item/role_restricted/kitchen_gun
+/datum/uplink_item/role_restricted/kitchen_gun //Its too good to pass up, so I just handwaved it with the description.
 	name = "Kitchen Gun (TM)"
-	desc = "A revolutionary .45 caliber cleaning solution! Say goodbye to daily stains and dirty surfaces with Kitchen Gun (TM)! \
-	Just three shots from Kitchen Gun (TM), and it'll sparkle like new! Includes two extra ammunition clips!"
+	desc = "A .45 caliber handgun, capable of immense damage and stopping power. More of a novelty than anything, \
+	the bullets are technically capable of cleaning things utilizing the immense heat generated from internal coils."
 	cost = 10
 	surplus = 40
 	restricted_roles = list("Cook", "Janitor")

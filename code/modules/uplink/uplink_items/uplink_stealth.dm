@@ -85,7 +85,7 @@
 	cost = 6
 	surplus = 50
 
-/datum/uplink_item/stealthy_weapons/romerol_kit
+/*/datum/uplink_item/stealthy_weapons/romerol_kit
 	name = "Romerol"
 	desc = "A highly experimental bioterror agent which creates dormant nodules to be etched into the grey matter of the brain. \
 			On death, these nodules take control of the dead body, causing limited revivification, \
@@ -93,7 +93,7 @@
 	item = /obj/item/storage/box/syndie_kit/romerol
 	cost = 25
 	cant_discount = TRUE
-	exclude_modes = list(/datum/game_mode/nuclear)
+	exclude_modes = list(/datum/game_mode/nuclear)*/
 
 /datum/uplink_item/stealthy_weapons/sleepy_pen
 	name = "Sleepy Pen"

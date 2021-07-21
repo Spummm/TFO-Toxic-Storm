@@ -81,8 +81,8 @@
 			var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
 			var/points_to_check = min(D.account_balance, ransom)
 			D.adjust_money(min(points_to_check, ransom))
-			priority_announce("One of your crew was captured by a rival organisation - we've needed to pay their ransom to bring them back. \
-								As is policy we've taken a portion of the station's funds to offset the overall cost.", null, "attention", null, "Nanotrasen Asset Protection")
+			priority_announce("ATTENTION: A missing persons report was called in for your station. \
+								We are relieved to inform you that the Confederation has ensured for their safe return. Please keep a better eye on your staff to avoid this in the future.", null, "attention", null, "Confederation High Command")
 
 			sleep(30)
 
